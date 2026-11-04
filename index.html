@@ -2,1299 +2,243 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HYDRA — Lucifer (The Morning Star). Sistema di gestione della conoscenza orientato a evidenze, tracciabilità e verifica, sviluppato e testato su hardware consumer.">
-<meta name="theme-color" content="#040812">
-<title>HYDRA — Lucifer (The Morning Star) | Conoscenza ed evidenze</title>
-
-<!-- Font Inter & Playfair Display / Cormorant Garamond per titoli cosmici ed eleganti -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hydra è una famiglia di progetti dedicati alla gestione della conoscenza, alle informazioni documentali e alla ricerca su sistemi intelligenti più tracciabili e consapevoli dei propri limiti.">
+<meta name="theme-color" content="#040711">
+<title>HYDRA | Una famiglia di progetti per la conoscenza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- Phosphor Icons per icone minimali ed eleganti -->
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web">
 <style>
-:root {
-  --bg-dark: #040711;
-  --bg-card: rgba(10, 18, 32, 0.65);
-  --bg-card-hover: rgba(16, 28, 48, 0.85);
-  --border-line: rgba(120, 160, 220, 0.15);
-  --border-glow: rgba(230, 195, 120, 0.3);
-  
-  --text-primary: #f0f4fc;
-  --text-muted: #8b9bb4;
-  --text-subtle: #5f708a;
-  
-  --gold-star: #ebd399;
-  --gold-glow: #d4af37;
-  --cyan-accent: #65d5ff;
-  
-  --status-green: #4ade80;
-  --status-amber: #fbbf24;
-  --status-blue: #60a5fa;
-
-  --max-width: 1200px;
-  --radius-lg: 16px;
-  --radius-md: 10px;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-  background-color: var(--bg-dark);
-}
-
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.container {
-  width: min(var(--max-width), calc(100% - 48px));
-  margin: 0 auto;
-}
-
-/* ================= HEADER & NAV ================= */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(4, 7, 17, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 76px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-sans);
-  letter-spacing: 0.15em;
-}
-
-.brand-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.22em;
-}
-
-.brand-divider {
-  color: rgba(255, 255, 255, 0.2);
-  font-weight: 300;
-}
-
-.brand-subtitle {
-  font-size: 13px;
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--gold-star);
-  letter-spacing: 0.05em;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  list-style: none;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-muted);
-}
-
-.nav-menu a:hover,
-.nav-menu a.active {
-  color: var(--text-primary);
-}
-
-.lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  padding-left: 20px;
-}
-
-.lang-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  padding: 2px 4px;
-  font-size: 12px;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-
-.lang-btn.active {
-  color: var(--gold-star);
-}
-
-.lang-btn:hover {
-  color: #fff;
-}
-
-.mobile-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* ================= HERO SECTION WITH COSMIC LANDSCAPE ================= */
-.hero {
-  position: relative;
-  min-height: 92vh;
-  display: flex;
-  align-items: center;
-  padding-top: 120px;
-  padding-bottom: 80px;
-  background: 
-    radial-gradient(circle at 70% 28%, rgba(235, 211, 153, 0.18) 0%, rgba(180, 130, 40, 0.08) 25%, transparent 60%),
-    radial-gradient(circle at 20% 20%, rgba(100, 140, 220, 0.08) 0%, transparent 50%),
-    linear-gradient(to bottom, #030610 0%, #060a18 40%, #0c1224 70%, #040711 100%);
-  overflow: hidden;
-}
-
-/* Effetto Stella del Mattino e cielo stellato */
-.morning-star-container {
-  position: absolute;
-  top: 18%;
-  right: 28%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.morning-star {
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 
-    0 0 10px 2px #fff,
-    0 0 30px 8px rgba(235, 211, 153, 0.9),
-    0 0 70px 20px rgba(212, 175, 55, 0.6),
-    0 0 120px 40px rgba(255, 220, 130, 0.3);
-  animation: starPulse 4s ease-in-out infinite alternate;
-}
-
-/* Raggi della Stella del Mattino */
-.morning-star::before, .morning-star::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9), transparent);
-}
-
-.morning-star::before {
-  width: 140px;
-  height: 1.5px;
-}
-
-.morning-star::after {
-  width: 1.5px;
-  height: 140px;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.9), transparent);
-}
-
-@keyframes starPulse {
-  0% { transform: scale(0.9); opacity: 0.85; }
-  100% { transform: scale(1.15); opacity: 1; }
-}
-
-/* Silouette delle Montagne all'Orizzonte */
-.mountains-svg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 48%;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.85;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 780px;
-}
-
-.hero-main-title {
-  font-size: clamp(52px, 8vw, 92px);
-  font-weight: 300;
-  letter-spacing: 0.28em;
-  line-height: 1.05;
-  color: #ffffff;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  text-shadow: 0 0 30px rgba(0,0,0,0.8);
-}
-
-.hero-subhead {
-  font-family: var(--font-serif);
-  font-size: clamp(20px, 3.2vw, 28px);
-  color: var(--gold-star);
-  letter-spacing: 0.08em;
-  margin-bottom: 36px;
-  font-weight: 400;
-}
-
-.hero-payoff-title {
-  font-family: var(--font-serif);
-  font-size: clamp(32px, 4.5vw, 54px);
-  font-weight: 300;
-  line-height: 1.2;
-  color: #ffffff;
-  margin-bottom: 24px;
-}
-
-.hero-payoff-desc {
-  font-size: clamp(16px, 1.8vw, 19px);
-  color: var(--text-muted);
-  font-weight: 300;
-  max-width: 640px;
-  line-height: 1.65;
-  margin-bottom: 32px;
-}
-
-.hero-line {
-  width: 48px;
-  height: 2px;
-  background: var(--gold-star);
-  opacity: 0.8;
-}
-
-/* ================= SEZIONE GRIGLIA A 2 COLONNE: PROGETTO & FILOSOFIA ================= */
-.section-overview {
-  padding: 100px 0;
-  background: linear-gradient(180deg, #040711 0%, #070c1a 50%, #040711 100%);
-  position: relative;
-  z-index: 10;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.grid-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.col-header {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-star);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.col-header::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(235, 211, 153, 0.2);
-}
-
-.project-title {
-  font-family: var(--font-serif);
-  font-size: clamp(26px, 3vw, 36px);
-  line-height: 1.3;
-  color: #ffffff;
-  font-weight: 400;
-  margin-bottom: 24px;
-}
-
-.project-desc {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-/* Lista della Filosofia con Icone Circolari */
-.philosophy-list {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.philosophy-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.philosophy-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid var(--border-glow);
-  background: rgba(235, 211, 153, 0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-star);
-  font-size: 22px;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.08);
-}
-
-.philosophy-text h4 {
-  font-size: 17px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-
-.philosophy-text p {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* ================= SEZIONE 5 SCHEDE: COSA FA HYDRA ================= */
-.section-features {
-  padding: 90px 0 110px;
-  background: #040711;
-  position: relative;
-  z-index: 10;
-}
-
-.section-title-center {
-  text-align: center;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-star);
-  margin-bottom: 54px;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
-
-.feature-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-line);
-  border-radius: var(--radius-lg);
-  padding: 36px 20px 32px;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.feature-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-glow);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-}
-
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold-star), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.feature-card:hover::before {
-  opacity: 1;
-}
-
-.feature-icon-wrapper {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--cyan-accent);
-  font-size: 26px;
-  margin-bottom: 24px;
-  transition: all 0.3s;
-}
-
-.feature-card:hover .feature-icon-wrapper {
-  color: var(--gold-star);
-  border-color: var(--border-glow);
-  background: rgba(235, 211, 153, 0.08);
-}
-
-.feature-card-title {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 12px;
-}
-
-.feature-card-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.55;
-  font-weight: 300;
-}
-
-/* ================= SEZIONE ROADMAP & STATO ================= */
-.section-roadmap {
-  padding: 100px 0 120px;
-  background: linear-gradient(180deg, #040711 0%, #080d1e 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  z-index: 10;
-}
-
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  gap: 50px;
-}
-
-.roadmap-left-title {
-  font-family: var(--font-serif);
-  font-size: clamp(28px, 3vw, 40px);
-  color: #ffffff;
-  font-weight: 400;
-  margin-top: 8px;
-  margin-bottom: 20px;
-}
-
-.roadmap-left-desc {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.roadmap-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.roadmap-col {
-  background: rgba(8, 14, 26, 0.7);
-  border: 1px solid var(--border-line);
-  border-radius: var(--radius-lg);
-  padding: 24px 20px;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.status-badge.implementate {
-  color: var(--status-green);
-  background: rgba(74, 222, 128, 0.08);
-}
-
-.status-badge.in-validazione {
-  color: var(--status-amber);
-  background: rgba(251, 191, 36, 0.08);
-}
-
-.status-badge.pianificate {
-  color: var(--status-blue);
-  background: rgba(96, 165, 250, 0.08);
-}
-
-.status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: currentColor;
-}
-
-.roadmap-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.roadmap-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.roadmap-item i {
-  margin-top: 3px;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-.status-badge.implementate ~ .roadmap-list i { color: var(--status-green); }
-.status-badge.in-validazione ~ .roadmap-list i { color: var(--status-amber); }
-.status-badge.pianificate ~ .roadmap-list i { color: var(--status-blue); }
-
-/* Citazione a piè di pagina nella sezione roadmap */
-.roadmap-quote {
-  text-align: center;
-  margin-top: 70px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-family: var(--font-serif);
-  font-size: clamp(18px, 2.5vw, 22px);
-  font-style: italic;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  padding: 40px 0;
-  background: #020409;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 12px;
-  color: var(--text-subtle);
-  position: relative;
-  z-index: 10;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-
-/* ================= ORIGINI, EVIDENZE E CRONOLOGIA ================= */
-.section-editorial {
-  padding: 96px 0;
-  background: linear-gradient(180deg, #070c1a 0%, #040711 100%);
-  border-top: 1px solid rgba(255,255,255,.05);
-  position: relative;
-  z-index: 10;
-}
-.editorial-heading {
-  max-width: 800px;
-  margin-bottom: 42px;
-}
-.editorial-title {
-  font-family: var(--font-serif);
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.18;
-  font-weight: 400;
-  color: #fff;
-  margin-bottom: 18px;
-}
-.editorial-lead {
-  color: var(--text-muted);
-  font-size: 17px;
-  line-height: 1.8;
-  max-width: 760px;
-}
-.story-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
-  gap: 34px;
-  align-items: start;
-}
-.story-copy {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.85;
-}
-.story-copy p + p { margin-top: 17px; }
-.story-aside {
-  border: 1px solid var(--border-glow);
-  background: linear-gradient(145deg, rgba(235,211,153,.07), rgba(10,18,32,.55));
-  border-radius: var(--radius-lg);
-  padding: 28px;
-}
-.story-aside .aside-label {
-  color: var(--gold-star);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.story-aside blockquote {
-  color: #fff;
-  font-family: var(--font-serif);
-  font-size: 25px;
-  line-height: 1.4;
-}
-.story-aside p { margin-top: 16px; color: var(--text-muted); font-size: 13px; }
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 34px 0 24px;
-}
-.metric-card {
-  border: 1px solid var(--border-line);
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 24px 20px;
-  min-height: 150px;
-}
-.metric-value {
-  color: var(--gold-star);
-  font-family: var(--font-serif);
-  font-size: clamp(27px, 3vw, 39px);
-  line-height: 1.15;
-  margin-bottom: 11px;
-}
-.metric-label { color: #f0f4fc; font-weight: 600; font-size: 13px; margin-bottom: 7px; }
-.metric-detail { color: var(--text-muted); font-size: 12px; line-height: 1.65; }
-.evidence-note {
-  border-left: 2px solid var(--gold-star);
-  padding: 14px 18px;
-  color: var(--text-muted);
-  background: rgba(235,211,153,.035);
-  font-size: 13px;
-  line-height: 1.75;
-}
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 34px;
-}
-.timeline-item {
-  border-top: 1px solid var(--border-glow);
-  padding: 20px 14px 0 0;
-}
-.timeline-index {
-  color: var(--gold-star);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .15em;
-  margin-bottom: 12px;
-}
-.timeline-item h4 { color: #fff; font-size: 15px; margin-bottom: 8px; }
-.timeline-item p { color: var(--text-muted); font-size: 12px; line-height: 1.7; }
-.scope-label {
-  display: inline-block;
-  border: 1px solid rgba(235,211,153,.28);
-  border-radius: 99px;
-  color: var(--gold-star);
-  padding: 5px 10px;
-  font-size: 10px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-.metrics-grid.example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (max-width: 860px) { .metrics-grid.example-grid { grid-template-columns: 1fr; } }
-@media (max-width: 1024px) {
-  .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 860px) {
-  .story-grid { grid-template-columns: 1fr; }
-  .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 580px) {
-  .metrics-grid, .timeline { grid-template-columns: 1fr; }
-  .section-editorial { padding: 70px 0; }
-}
-
-/* ================= RESPONSIVE DESIGN ================= */
-@media (max-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .roadmap-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .roadmap-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 860px) {
-  .grid-two-col {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .roadmap-columns {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 76px;
-    left: 0;
-    right: 0;
-    background: #060a17;
-    flex-direction: column;
-    padding: 24px;
-    border-bottom: 1px solid var(--border-line);
-  }
-  
-  .nav-menu.open {
-    display: flex;
-  }
-  
-  .mobile-toggle {
-    display: block;
-  }
-}
-
-@media (max-width: 580px) {
-  .container {
-    width: calc(100% - 32px);
-  }
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-main-title {
-    font-size: 42px;
-  }
-  .brand-subtitle {
-    display: none;
-  }
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-}
+:root{--bg:#040711;--panel:rgba(10,18,32,.72);--line:rgba(120,160,220,.16);--gold:#ebd399;--cyan:#65d5ff;--white:#f0f4fc;--muted:#9aa9bf;--subtle:#65758d;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',Arial,sans-serif;--max:1160px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px;background:var(--bg)}
+body{background:var(--bg);color:var(--white);font:15px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+header{position:fixed;z-index:20;inset:0 0 auto;background:rgba(4,7,17,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;letter-spacing:.18em;font-weight:700}
+.brand strong{font-size:20px;letter-spacing:.22em}
+.brand span{font:italic 15px var(--serif);color:var(--gold);letter-spacing:.04em}
+nav{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:12px}
+nav a:hover,nav a:focus{color:#fff}
+.lang{display:flex;gap:7px;border-left:1px solid var(--line);padding-left:18px}
+.lang button,.menu-toggle{background:none;border:0;color:var(--muted);font:600 12px var(--sans);cursor:pointer}
+.lang button.active{color:var(--gold)}
+.menu-toggle{display:none;font-size:24px}
+.hero{min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:150px 0 100px;background:radial-gradient(circle at 72% 28%,rgba(235,211,153,.18),transparent 35%),radial-gradient(circle at 20% 20%,rgba(100,140,220,.1),transparent 45%),linear-gradient(180deg,#030610,#0b1224 72%,#040711)}
+.hero:after{content:"";position:absolute;width:5px;height:5px;right:27%;top:25%;border-radius:50%;background:#fff;box-shadow:0 0 20px 7px rgba(235,211,153,.8),0 0 80px 25px rgba(212,175,55,.35)}
+.hero-content{position:relative;z-index:1;max-width:820px}
+.eyebrow{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-bottom:22px}
+h1{font-size:clamp(52px,9vw,96px);font-weight:300;letter-spacing:.25em;line-height:1.05}
+.hero-kicker{font:italic clamp(20px,3vw,29px) var(--serif);color:var(--gold);margin:12px 0 38px}
+.hero h2{font:400 clamp(32px,5vw,56px)/1.15 var(--serif);max-width:740px;margin-bottom:22px}
+.lead{font-size:17px;color:var(--muted);max-width:680px;line-height:1.8}
+.hero-rule{width:52px;height:2px;background:var(--gold);margin-top:34px}
+section{padding:96px 0;border-top:1px solid rgba(255,255,255,.05)}
+.section-head{max-width:780px;margin-bottom:42px}
+.section-label{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:15px}
+h2.section-title{font:400 clamp(30px,4vw,46px)/1.18 var(--serif);margin-bottom:17px}
+.section-lead{color:var(--muted);font-size:16px;line-height:1.8}
+.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.intro-copy{color:var(--muted);font-size:15px;line-height:1.9}
+.principles{display:grid;gap:22px}
+.principle{display:grid;grid-template-columns:42px 1fr;gap:16px}
+.principle-icon{width:42px;height:42px;border:1px solid rgba(235,211,153,.28);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-size:20px}
+.principle h3,.card h3{font-size:15px;color:#fff;margin-bottom:5px}
+.principle p,.card p{font-size:13px;color:var(--muted);line-height:1.75}
+.foundation{background:linear-gradient(180deg,#070c1a,#040711)}
+.foundation-card{border:1px solid rgba(235,211,153,.25);background:linear-gradient(145deg,rgba(235,211,153,.07),rgba(10,18,32,.6));border-radius:18px;padding:34px;max-width:900px}
+.foundation-card h3{font:400 32px var(--serif);color:#fff;margin-bottom:12px}
+.foundation-card p{color:var(--muted);max-width:780px}
+.architecture-note{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.note{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--panel)}
+.note strong{display:block;color:var(--gold);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.note p{font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:28px;min-height:210px;transition:.25s}
+.card:hover{border-color:rgba(235,211,153,.4);transform:translateY(-3px)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.card-icon{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--cyan);font-size:22px}
+.status{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:30px;padding:5px 9px;white-space:nowrap}
+.card h3{font-size:18px;letter-spacing:.04em}
+.card p{font-size:14px}
+.card .sub{color:var(--subtle);font-size:12px;margin-top:14px}
+.research{background:linear-gradient(180deg,#040711,#080d1b)}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.research-panel{padding:28px;border-left:2px solid var(--gold);background:rgba(235,211,153,.035)}
+.research-panel h3{font:400 25px var(--serif);margin-bottom:10px}
+.research-panel p{font-size:14px;color:var(--muted)}
+.closing{max-width:850px;font:italic 26px/1.5 var(--serif);color:#fff}
+.contact-row{display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid var(--line);background:var(--panel);padding:28px;border-radius:16px}
+.contact-row p{color:var(--muted);font-size:14px}
+.contact-link{color:var(--gold);font-size:13px;border-bottom:1px solid rgba(235,211,153,.4);padding-bottom:4px;white-space:nowrap}
+footer{padding:34px 0;background:#020409;border-top:1px solid rgba(255,255,255,.06);color:var(--subtle);font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:900px){nav{gap:13px}nav a{font-size:11px}.intro-grid{gap:32px}}
+@media(max-width:760px){.nav{height:68px}.menu-toggle{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;background:#060a17;padding:22px 24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}nav.open{display:flex}.lang{border:0;padding:0}.intro-grid,.architecture-note,.research-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.hero{min-height:78vh}.contact-row,.footer-inner{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.container{width:calc(100% - 32px)}section{padding:72px 0}.brand span{display:none}.hero h1{font-size:44px}.hero-kicker{margin-bottom:28px}.foundation-card{padding:24px}.card{padding:23px}}
 </style>
 </head>
-
 <body>
-
-<!-- HEADER NAVBAR -->
 <header>
-  <div class="container nav-container">
-    <a href="#home" class="brand" aria-label="Hydra Home">
-      <span class="brand-title">HYDRA</span>
-      <span class="brand-divider">|</span>
-      <span class="brand-subtitle">Lucifer — The Morning Star</span>
-    </a>
-    
-    <nav>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#home" class="active" data-it="Home" data-en="Home">Home</a></li>
-        <li><a href="#progetto" data-it="Il progetto" data-en="The project">Il progetto</a></li>
-        <li><a href="#funzionalita" data-it="Funzionalità" data-en="Features">Funzionalità</a></li>
-        <li><a href="#origini" data-it="Origini" data-en="Origins">Origini</a></li>
-        <li><a href="#evidenze" data-it="Evidenze" data-en="Evidence">Evidenze</a></li>
-        <li><a href="#esempio" data-it="Esempio" data-en="Example">Esempio</a></li>
-        <li><a href="#roadmap" data-it="Roadmap" data-en="Roadmap">Roadmap</a></li>
-        <li><a href="https://www.linkedin.com/in/galliano-brigo-6104b4107/" target="_blank" rel="noopener" data-it="Contatti" data-en="Contact">Contatti</a></li>
-      </ul>
-    </nav>
-
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <div class="lang-switch">
-        <button class="lang-btn active" data-lang="it">IT</button>
-        <span>|</span>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
-        <i class="ph ph-list"></i>
-      </button>
-    </div>
-  </div>
+ <div class="container nav">
+  <a class="brand" href="#home" aria-label="Hydra home"><strong>HYDRA</strong><span>Knowledge &amp; beyond</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false"><i class="ph ph-list"></i></button>
+  <nav id="navMenu">
+   <a href="#famiglia" data-it="La famiglia" data-en="The family">La famiglia</a>
+   <a href="#lucifero" data-it="Lucifero" data-en="Lucifero">Lucifero</a>
+   <a href="#linee" data-it="Linee di sviluppo" data-en="Development lines">Linee di sviluppo</a>
+   <a href="#ricerca" data-it="Ricerca" data-en="Research">Ricerca</a>
+   <a href="#principi" data-it="Principi" data-en="Principles">Principi</a>
+   <a href="#contatti" data-it="Contatti" data-en="Contact">Contatti</a>
+   <div class="lang"><button class="active" data-lang="it">IT</button><button data-lang="en">EN</button></div>
+  </nav>
+ </div>
 </header>
-
 <main>
-  <!-- HERO SECTION CON PAESAGGIO NOTTURNO E STELLA DEL MATTINO -->
-  <section class="hero" id="home">
-    <!-- Componente grafico della Stella del Mattino -->
-    <div class="morning-star-container">
-      <div class="morning-star"></div>
+ <section class="hero" id="home">
+  <div class="container"><div class="hero-content">
+   <div class="eyebrow" data-it="Una famiglia di progetti indipendenti di ricerca e sviluppo" data-en="A family of independent research and development projects">Una famiglia di progetti indipendenti di ricerca e sviluppo</div>
+   <h1>HYDRA</h1>
+   <div class="hero-kicker">Knowledge &amp; beyond</div>
+   <h2 data-it="Connettere le informazioni. Dare forma alla conoscenza." data-en="Connecting information. Giving shape to knowledge.">Connettere le informazioni. Dare forma alla conoscenza.</h2>
+   <p class="lead" data-it="Hydra riunisce progetti e percorsi di sviluppo dedicati alla gestione della conoscenza, alla consultazione delle informazioni e alla ricerca di strumenti più trasparenti e consapevoli dei propri limiti." data-en="Hydra brings together projects and development paths focused on knowledge management, information access, and the search for tools that are more transparent and aware of their limitations.">Hydra riunisce progetti e percorsi di sviluppo dedicati alla gestione della conoscenza, alla consultazione delle informazioni e alla ricerca di strumenti più trasparenti e consapevoli dei propri limiti.</p>
+   <div class="hero-rule"></div>
+  </div></div>
+ </section>
+
+ <section id="famiglia">
+  <div class="container">
+   <div class="section-head">
+    <div class="section-label" data-it="IL PROGETTO" data-en="THE PROJECT">IL PROGETTO</div>
+    <h2 class="section-title" data-it="Un ecosistema, più direzioni di sviluppo." data-en="One ecosystem, multiple development paths.">Un ecosistema, più direzioni di sviluppo.</h2>
+    <p class="section-lead" data-it="Hydra è il progetto complessivo e il patrimonio informativo da cui prendono forma diverse linee. Ogni linea affronta esigenze specifiche e può trovarsi in una fase diversa di maturità: ricerca, sviluppo, sperimentazione o applicazione." data-en="Hydra is the overall project and information foundation from which different lines take shape. Each line addresses specific needs and may be at a different stage of maturity: research, development, experimentation, or application.">Hydra è il progetto complessivo e il patrimonio informativo da cui prendono forma diverse linee. Ogni linea affronta esigenze specifiche e può trovarsi in una fase diversa di maturità: ricerca, sviluppo, sperimentazione o applicazione.</p>
+   </div>
+   <div class="intro-grid">
+    <div class="intro-copy">
+     <p data-it="La famiglia Hydra non coincide con un singolo prodotto né con un unico ambito d'uso. Comprende un nucleo principale di ricerca e coordinamento, linee applicative rivolte a contesti differenti e percorsi di ricerca che esplorano nuove possibilità." data-en="The Hydra family is not a single product or a single use case. It includes a core research and coordination system, application lines for different contexts, and research paths exploring new possibilities.">La famiglia Hydra non coincide con un singolo prodotto né con un unico ambito d'uso. Comprende un nucleo principale di ricerca e coordinamento, linee applicative rivolte a contesti differenti e percorsi di ricerca che esplorano nuove possibilità.</p>
+     <p style="margin-top:18px" data-it="Il punto comune è un approccio alla conoscenza che considera importanti la qualità delle fonti, la tracciabilità delle informazioni e la possibilità di riconoscere ciò che resta incerto o non sufficientemente documentato." data-en="The common thread is an approach to knowledge that values source quality, information traceability, and the ability to recognize what remains uncertain or insufficiently documented.">Il punto comune è un approccio alla conoscenza che considera importanti la qualità delle fonti, la tracciabilità delle informazioni e la possibilità di riconoscere ciò che resta incerto o non sufficientemente documentato.</p>
     </div>
-
-    <!-- Silhouette SVG delle montagne all'orizzonte -->
-    <svg class="mountains-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path fill="#040711" fill-opacity="0.95" d="M0,224L48,213.3C96,203,192,181,288,192C384,203,480,245,576,240C672,235,768,181,864,186.7C960,192,1056,256,1152,261.3C1248,267,1344,213,1392,186.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      <path fill="#070c1a" fill-opacity="0.7" d="M0,160L60,144C120,128,240,96,360,117.3C480,139,600,213,720,224C840,235,960,181,1080,165.3C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-    </svg>
-
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-main-title">HYDRA</h1>
-        <div class="hero-subhead">Lucifer — The Morning Star</div>
-        <h2 class="hero-payoff-title" data-it="Portare alla luce la conoscenza." data-en="Bring knowledge into the light.">Portare alla luce la conoscenza.</h2>
-        <p class="hero-payoff-desc" data-it="Connettere le fonti. Rendere visibili le evidenze.<br>Preservare l'incertezza." data-en="Connect sources. Make evidence visible.<br>Preserve uncertainty.">Connettere le fonti. Rendere visibili le evidenze.<br>Preservare l'incertezza.</p>
-        <div class="hero-line"></div>
-      </div>
+    <div class="principles">
+     <div class="principle"><div class="principle-icon"><i class="ph ph-books"></i></div><div><h3 data-it="Una base di conoscenza" data-en="A knowledge foundation">Una base di conoscenza</h3><p data-it="Informazioni e documenti organizzati per essere consultati e messi in relazione." data-en="Information and documents organized to be accessed and related.">Informazioni e documenti organizzati per essere consultati e messi in relazione.</p></div></div>
+     <div class="principle"><div class="principle-icon"><i class="ph ph-compass"></i></div><div><h3 data-it="Linee con obiettivi distinti" data-en="Distinct development goals">Linee con obiettivi distinti</h3><p data-it="Applicazioni e ricerca non vengono confuse: ciascuna viene presentata secondo il proprio stato effettivo." data-en="Applications and research are kept distinct: each is presented according to its actual status.">Applicazioni e ricerca non vengono confuse: ciascuna viene presentata secondo il proprio stato effettivo.</p></div></div>
     </div>
-  </section>
-
-  <!-- SEZIONE A DUE COLONNE: IL PROGETTO E LA FILOSOFIA -->
-  <section class="section-overview" id="progetto">
-    <div class="container">
-      <div class="grid-two-col">
-        
-        <!-- Colonna 1: IL PROGETTO -->
-        <div>
-          <div class="col-header" data-it="IL PROGETTO" data-en="THE PROJECT">IL PROGETTO</div>
-          <h3 class="project-title" data-it="Hydra è un sistema di gestione della conoscenza che trasforma documenti e fonti in una struttura connessa, interrogabile e tracciabile." data-en="Hydra is a knowledge management system that transforms documents and sources into a connected, searchable, and traceable structure.">Hydra è un sistema di gestione della conoscenza che trasforma documenti e fonti in una struttura connessa, interrogabile e tracciabile.</h3>
-          <p class="project-desc" data-it="Oggi conserva le frasi originali dei documenti con la loro provenienza, le ritrova con una ricerca per parole e per significato e collega ogni risposta alle frasi che la sostengono, con citazioni controllate automaticamente. La rilevazione automatica di lacune e contraddizioni è un obiettivo del progetto, ancora in sviluppo." data-en="Today it keeps the original sentences of documents with their provenance, retrieves them with keyword and semantic search, and links every answer to the sentences that support it, with automatically checked citations. Automatic detection of gaps and contradictions is a project goal, still under development.">Oggi conserva le frasi originali dei documenti con la loro provenienza, le ritrova con una ricerca per parole e per significato e collega ogni risposta alle frasi che la sostengono, con citazioni controllate automaticamente. La rilevazione automatica di lacune e contraddizioni è un obiettivo del progetto, ancora in sviluppo.</p>
-        </div>
-
-        <!-- Colonna 2: LA FILOSOFIA -->
-        <div>
-          <div class="col-header" data-it="LA FILOSOFIA" data-en="THE PHILOSOPHY">LA FILOSOFIA</div>
-          <div class="philosophy-list">
-            
-            <div class="philosophy-item">
-              <div class="philosophy-icon"><i class="ph ph-sun-dim"></i></div>
-              <div class="philosophy-text">
-                <h4 data-it="Non inventare certezze." data-en="Do not fabricate certainty.">Non inventare certezze.</h4>
-                <p data-it="Hydra è progettato per rendere le informazioni più accessibili e verificabili, mantenendo visibili i limiti delle evidenze disponibili." data-en="Hydra is designed to make information more accessible and verifiable while keeping the limits of available evidence visible.">Hydra è progettato per rendere le informazioni più accessibili e verificabili, mantenendo visibili i limiti delle evidenze disponibili.</p>
-              </div>
-            </div>
-
-            <div class="philosophy-item">
-              <div class="philosophy-icon"><i class="ph ph-git-fork"></i></div>
-              <div class="philosophy-text">
-                <h4 data-it="Non nascondere le divergenze." data-en="Do not hide disagreements.">Non nascondere le divergenze.</h4>
-                <p data-it="Le differenze tra le fonti vanno conservate e mostrate, non fuse. È un principio di progetto: la loro rilevazione automatica è ancora in sviluppo." data-en="Differences between sources should be kept and shown, not merged. This is a design principle: detecting them automatically is still under development.">Le differenze tra le fonti vanno conservate e mostrate, non fuse. È un principio di progetto: la loro rilevazione automatica è ancora in sviluppo.</p>
-              </div>
-            </div>
-
-            <div class="philosophy-item">
-              <div class="philosophy-icon"><i class="ph ph-shield-check"></i></div>
-              <div class="philosophy-text">
-                <h4 data-it="Rendere verificabile il percorso." data-en="Make the path verifiable.">Rendere verificabile il percorso.</h4>
-                <p data-it="Il sistema è progettato per collegare le risposte alle fonti disponibili e rendere esaminabile il percorso, senza presumere che ogni risposta sia già verificata." data-en="The system is designed to connect answers to available sources and make the reasoning path examinable, without assuming every answer is already verified.">Il sistema è progettato per collegare le risposte alle fonti disponibili e rendere esaminabile il percorso, senza presumere che ogni risposta sia già verificata.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SEZIONE 5 SCHEDE: COSA FA HYDRA -->
-  <section class="section-features" id="funzionalita">
-    <div class="container">
-      <div class="section-title-center" data-it="COSA FA HYDRA" data-en="WHAT HYDRA DOES">COSA FA HYDRA</div>
-      
-      <div class="features-grid">
-        
-        <!-- Scheda 1: ESTRAE -->
-        <div class="feature-card">
-          <div class="feature-icon-wrapper"><i class="ph ph-file-text"></i></div>
-          <div class="feature-card-title" data-it="CONSERVA" data-en="PRESERVES">CONSERVA</div>
-          <p class="feature-card-desc" data-it="Le frasi originali dei documenti, con documento, capitolo e posizione." data-en="The original sentences of documents, with document, chapter and position.">Le frasi originali dei documenti, con documento, capitolo e posizione.</p>
-        </div>
-
-        <!-- Scheda 2: CONNETTE -->
-        <div class="feature-card">
-          <div class="feature-icon-wrapper"><i class="ph ph-share-network"></i></div>
-          <div class="feature-card-title" data-it="CERCA" data-en="RETRIEVES">CERCA</div>
-          <p class="feature-card-desc" data-it="Unisce ricerca per parole e per significato, e collega le sigle ai loro nomi estesi." data-en="Combines keyword and semantic search, and links acronyms to their full names.">Unisce ricerca per parole e per significato, e collega le sigle ai loro nomi estesi.</p>
-        </div>
-
-        <!-- Scheda 3: EVIDENZIA -->
-        <div class="feature-card">
-          <div class="feature-icon-wrapper"><i class="ph ph-magnifying-glass-plus"></i></div>
-          <div class="feature-card-title" data-it="VERIFICA" data-en="CHECKS">VERIFICA</div>
-          <p class="feature-card-desc" data-it="Controlla che ogni citazione esista, parola per parola, nel testo citato." data-en="Checks that every citation exists, word for word, in the cited text.">Controlla che ogni citazione esista, parola per parola, nel testo citato.</p>
-        </div>
-
-        <!-- Scheda 4: TRACCIA -->
-        <div class="feature-card">
-          <div class="feature-icon-wrapper"><i class="ph ph-shield-check"></i></div>
-          <div class="feature-card-title" data-it="TRACCIA" data-en="TRACES">TRACCIA</div>
-          <p class="feature-card-desc" data-it="Registra per ogni risposta le prove, il messaggio esatto dato al modello e le versioni di codice e modello." data-en="Records, for every answer, the evidence, the exact message given to the model and the code and model versions.">Registra per ogni risposta le prove, il messaggio esatto dato al modello e le versioni di codice e modello.</p>
-        </div>
-
-        <!-- Scheda 5: SUPPORTA -->
-        <div class="feature-card">
-          <div class="feature-icon-wrapper"><i class="ph ph-user-focus"></i></div>
-          <div class="feature-card-title" data-it="SUPPORTA" data-en="SUPPORTS">SUPPORTA</div>
-          <p class="feature-card-desc" data-it="Risposte con citazioni da controllare, non verdetti: la decisione resta alla persona." data-en="Answers with citations to check, not verdicts: the decision stays with people.">Risposte con citazioni da controllare, non verdetti: la decisione resta alla persona.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ORIGINI DEL PROGETTO -->
-  <section class="section-editorial" id="origini">
-    <div class="container">
-      <div class="editorial-heading">
-        <div class="col-header" data-it="PERCHÉ È NATO HYDRA" data-en="WHY HYDRA EXISTS">PERCHÉ È NATO HYDRA</div>
-        <h2 class="editorial-title" data-it="Un problema concreto, affrontato con il metodo della qualità." data-en="A practical problem, approached through the discipline of quality.">Un problema concreto, affrontato con il metodo della qualità.</h2>
-        <p class="editorial-lead" data-it="Hydra nasce dall'incontro tra oltre 25 anni di esperienza nel controllo e nella gestione della qualità e una domanda: come usare l'intelligenza artificiale senza perdere il legame tra una risposta e le evidenze che dovrebbero sostenerla?" data-en="Hydra grew from more than 25 years of experience in quality control and quality management, and a question: how can AI be used without losing the link between an answer and the evidence that should support it?">Hydra nasce dall'incontro tra oltre 25 anni di esperienza nel controllo e nella gestione della qualità e una domanda: come usare l'intelligenza artificiale senza perdere il legame tra una risposta e le evidenze che dovrebbero sostenerla?</p>
-      </div>
-      <div class="story-grid">
-        <div class="story-copy">
-          <p data-it="Nella qualità, una risposta plausibile non è necessariamente una risposta corretta. Contano la provenienza delle informazioni, la revisione dei documenti, le contraddizioni, le lacune e la possibilità di ricostruire il percorso che porta a una conclusione. Da questa esigenza è nato Hydra: non un nuovo modello di IA, ma un sistema che integra tecnologie esistenti per organizzare, collegare ed esaminare la conoscenza documentale." data-en="In quality management, a plausible answer is not necessarily a correct one. Provenance, document revisions, contradictions, gaps and the ability to reconstruct how a conclusion was reached all matter. Hydra grew from this need: not as a new AI model, but as a system integrating existing technologies to organize, connect and examine documentary knowledge.">Nella qualità, una risposta plausibile non è necessariamente una risposta corretta. Contano la provenienza delle informazioni, la revisione dei documenti, le contraddizioni, le lacune e la possibilità di ricostruire il percorso che porta a una conclusione. Da questa esigenza è nato Hydra: non un nuovo modello di IA, ma un sistema che integra tecnologie esistenti per organizzare, collegare ed esaminare la conoscenza documentale.</p>
-          <p data-it="Il progetto è sviluppato in modo indipendente, senza un grande gruppo di ricerca o un'infrastruttura dedicata. Le risorse economiche limitate hanno imposto di ottimizzare l'architettura per poterla eseguire e testare su hardware consumer non recente. Questo vincolo ha orientato il lavoro verso l'uso misurato delle risorse, l'elaborazione locale e la verifica progressiva delle singole componenti." data-en="The project is developed independently, without a large research team or dedicated infrastructure. Limited funding has made it necessary to optimize the architecture so it can run and be tested on older, readily available consumer hardware. This constraint has shaped a focus on resource efficiency, local processing and incremental validation of individual components.">Il progetto è sviluppato in modo indipendente, senza un grande gruppo di ricerca o un'infrastruttura dedicata. Le risorse economiche limitate hanno imposto di ottimizzare l'architettura per poterla eseguire e testare su hardware consumer non recente. Questo vincolo ha orientato il lavoro verso l'uso misurato delle risorse, l'elaborazione locale e la verifica progressiva delle singole componenti.</p>
-          <p data-it="Il percorso ha incluso revisioni e risultati non sempre positivi: più modelli possono divergere sulla stessa fonte; la convergenza non garantisce la verità; una citazione autentica non prova, da sola, che una risposta sia corretta. Queste difficoltà hanno portato a separare meglio recupero, supporto documentale, tracciabilità e verifica, e a introdurre test ciechi con criteri dichiarati prima delle prove." data-en="The development path has included revisions and results that were not always positive: models can disagree about the same source; convergence does not guarantee truth; and an authentic citation alone does not prove an answer correct. These difficulties led to a clearer separation of retrieval, documentary support, traceability and verification, as well as blind tests with criteria defined before evaluation.">Il percorso ha incluso revisioni e risultati non sempre positivi: più modelli possono divergere sulla stessa fonte; la convergenza non garantisce la verità; una citazione autentica non prova, da sola, che una risposta sia corretta. Queste difficoltà hanno portato a separare meglio recupero, supporto documentale, tracciabilità e verifica, e a introdurre test ciechi con criteri dichiarati prima delle prove.</p>
-        </div>
-        <aside class="story-aside">
-          <div class="aside-label" data-it="PRINCIPIO GUIDA" data-en="GUIDING PRINCIPLE">PRINCIPIO GUIDA</div>
-          <blockquote data-it="Non chiedere fiducia nell'IA. Rendere esaminabili le ragioni per cui una risposta dovrebbe essere considerata affidabile." data-en="Do not ask people to trust AI. Make the reasons for treating an answer as reliable open to examination.">Non chiedere fiducia nell'IA. Rendere esaminabili le ragioni per cui una risposta dovrebbe essere considerata affidabile.</blockquote>
-          <p data-it="Hydra è un progetto in evoluzione. Le prestazioni dichiarate sono limitate agli esperimenti descritti e non costituiscono una certificazione generale." data-en="Hydra is an evolving project. Reported performance is limited to the experiments described and is not a general certification.">Hydra è un progetto in evoluzione. Le prestazioni dichiarate sono limitate agli esperimenti descritti e non costituiscono una certificazione generale.</p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- RISULTATI EVIDENZE -->
-  <section class="section-editorial" id="evidenze">
-    <div class="container">
-      <div class="editorial-heading">
-        <div class="col-header" data-it="EVIDENZE E LIMITI · AGGIORNAMENTO 3 NOVEMBRE 2026" data-en="EVIDENCE AND LIMITATIONS · UPDATED 3 NOVEMBER 2026">EVIDENZE E LIMITI · AGGIORNAMENTO 3 NOVEMBRE 2026</div>
-        <h2 class="editorial-title" data-it="Progressi misurati. Portata dichiarata." data-en="Measured progress. Clearly stated scope.">Progressi misurati. Portata dichiarata.</h2>
-        <p class="editorial-lead" data-it="I numeri descrivono esperimenti circoscritti sul dominio nucleare, con domande in inglese. Misurano aspetti diversi e non vanno interpretati come una misura generale dell'accuratezza di Hydra." data-en="These figures describe bounded experiments in the nuclear domain using English questions. They measure different things and should not be interpreted as a general measure of Hydra's accuracy.">I numeri descrivono esperimenti circoscritti sul dominio nucleare, con domande in inglese. Misurano aspetti diversi e non vanno interpretati come una misura generale dell'accuratezza di Hydra.</p>
-      </div>
-      <div class="metrics-grid">
-        <article class="metric-card">
-          <div class="metric-value">208,890</div>
-          <div class="metric-label" data-it="Documenti indicizzati" data-en="Indexed documents">Documenti indicizzati</div>
-          <p class="metric-detail" data-it="Fotografia tecnica del progetto, ottobre 2026. La dimensione dell'indice non equivale alla copertura semantica o alla correttezza delle risposte." data-en="Project snapshot, October 2026. Index size does not equal semantic coverage or answer correctness.">Fotografia tecnica del progetto, ottobre 2026. La dimensione dell'indice non equivale alla copertura semantica o alla correttezza delle risposte.</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-value">17.2 M</div>
-          <div class="metric-label" data-it="Frasi originali con provenienza" data-en="Original sentences with provenance">Frasi originali con provenienza</div>
-          <p class="metric-detail" data-it="Le registrazioni conservano riferimenti a documento e posizione. La provenienza facilita il controllo, ma non garantisce che una risposta sia corretta." data-en="Records retain document and position references. Provenance supports checking, but does not guarantee an answer is correct.">Le registrazioni conservano riferimenti a documento e posizione. La provenienza facilita il controllo, ma non garantisce che una risposta sia corretta.</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-value">69 / 90</div>
-          <div class="metric-label" data-it="Ricerca ibrida (PS); sola ricerca per parole: 60/90" data-en="Hybrid search (PS); keyword search alone: 60/90">Ricerca ibrida (PS); sola ricerca per parole: 60/90</div>
-          <p class="metric-detail" data-it="Insieme 5, 90 domande cieche: in 69 la frase attesa era tra le 8 prove date al lettore, contro 60 con la sola ricerca per parole (p = 0,0059). Misura la selezione delle prove, non la correttezza delle risposte." data-en="Set 5, 90 blind questions: in 69 the expected sentence was among the 8 passages given to the reader, versus 60 with keyword search alone (p = 0.0059). This measures evidence selection, not answer correctness.">Insieme 5, 90 domande cieche: in 69 la frase attesa era tra le 8 prove date al lettore, contro 60 con la sola ricerca per parole (p = 0,0059). Misura la selezione delle prove, non la correttezza delle risposte.</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-value">119 / 120</div>
-          <div class="metric-label" data-it="Risposte con citazioni tutte autentiche" data-en="Answers with all citations authentic">Risposte con citazioni tutte autentiche</div>
-          <p class="metric-detail" data-it="Insieme 7: in 119 risposte su 120 tutte le citazioni esistevano parola per parola nel testo citato; nell'altra un testo vero era attribuito al numero di testo sbagliato. Autenticità non significa da sola supporto o correttezza." data-en="Set 7: in 119 of 120 answers every citation existed word for word in the cited text; in the other, a real text was attributed to the wrong text number. Authenticity alone does not mean support or correctness.">Insieme 7: in 119 risposte su 120 tutte le citazioni esistevano parola per parola nel testo citato; nell'altra un testo vero era attribuito al numero di testo sbagliato. Autenticità non significa da sola supporto o correttezza.</p>
-        </article>
-      </div>
-      <div class="metrics-grid" style="margin-top:16px">
-        <article class="metric-card">
-          <div class="metric-value">48 / 60</div>
-          <div class="metric-label" data-it="Risposte buone, giudizio cieco (PS + Arcangeli)" data-en="Good answers, blind judging (PS + Archangels)">Risposte buone, giudizio cieco (PS + Arcangeli)</div>
-          <p class="metric-detail" data-it="Insieme 7, 60 domande cieche; buona = corretta, sostenuta dalle prove e tracciata nella citazione. PS senza Arcangeli: 46/60; la differenza non è significativa (p = 0,25). Vale per questo campione e questa configurazione, non è una precisione generale." data-en="Set 7, 60 blind questions; good = correct, supported by the evidence and traced to the citation. PS without Archangels: 46/60; the difference is not significant (p = 0.25). Valid for this sample and configuration, not a general accuracy figure.">Insieme 7, 60 domande cieche; buona = corretta, sostenuta dalle prove e tracciata nella citazione. PS senza Arcangeli: 46/60; la differenza non è significativa (p = 0,25). Vale per questo campione e questa configurazione, non è una precisione generale.</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-value">45 / 45</div>
-          <div class="metric-label" data-it="Lucifero v10 + controllo numerico v2: prove di sviluppo" data-en="Lucifero v10 + numerical control v2: development tests">Lucifero v10 + controllo numerico v2: prove di sviluppo</div>
-          <p class="metric-detail" data-it="Verifica di Lucifero v10 con il controllo numerico v2 (28/10): su 45 domande di sviluppo, le prove (le 8 frasi date al lettore) sono rimaste identiche alla versione precedente in 45/45 casi e le risposte del lettore in 45/45; il controllo ha modificato 3 risposte, come previsto. Tutti i 45 dossier erano interamente nel contesto. La validazione è stata fatta con l'insieme 8 (vedi sotto)." data-en="Lucifero v10 was tested with numerical control v2 (28 October): across 45 development questions, the evidence inputs (the 8 sentences shown to the reader) remained identical to the previous version in 45/45 cases, as did the reader's answers in 45/45. The control changed 3 answers as expected. All 45 dossiers fitted entirely in context. Validation was then carried out with Set 8 (see below).">Verifica di Lucifero v10 con il controllo numerico v2 (28/10): su 45 domande di sviluppo, le prove (le 8 frasi date al lettore) sono rimaste identiche alla versione precedente in 45/45 casi e le risposte del lettore in 45/45; il controllo ha modificato 3 risposte, come previsto. Tutti i 45 dossier erano interamente nel contesto. La validazione è stata fatta con l'insieme 8 (vedi sotto).</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-value">117</div>
-          <div class="metric-label" data-it="Elementi sottoposti a revisione specifica" data-en="Items given an item-specific review">Elementi sottoposti a revisione specifica</div>
-          <p class="metric-detail" data-it="Nella seconda revisione della preparazione del Set 8, tutte le 117 spiegazioni erano distinte: 89 domande sono state mantenute e 28 respinte. Nove elementi che la prima revisione aveva lasciato passare sono risultati difettosi." data-en="In the second review of Set 8 preparation, all 117 explanations were distinct: 89 questions were retained and 28 rejected. Nine items that had passed the first review were found defective.">Nella seconda revisione della preparazione del Set 8, tutte le 117 spiegazioni erano distinte: 89 domande sono state mantenute e 28 respinte. Nove elementi che la prima revisione aveva lasciato passare sono risultati difettosi.</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-value">10 / 10</div>
-          <div class="metric-label" data-it="Controlli lessicali iniziali" data-en="Initial lexical checks">Controlli lessicali iniziali</div>
-          <p class="metric-detail" data-it="La base lessicale inglese–italiano costruita con Open English WordNet, MultiWordNet e ItalWordNet ha superato 10 controlli iniziali. Non è ancora collegata alla ricerca. Il primo controllo degli embedding multilingui ha riguardato solo cinque coppie di frasi e non costituisce una validazione." data-en="The English–Italian lexical foundation built from Open English WordNet, MultiWordNet and ItalWordNet passed 10 initial checks. It is not yet connected to retrieval. The first multilingual-embedding check covered only five sentence pairs and is not a validation.">La base lessicale inglese–italiano costruita con Open English WordNet, MultiWordNet e ItalWordNet ha superato 10 controlli iniziali. Non è ancora collegata alla ricerca. Il primo controllo degli embedding multilingui ha riguardato solo cinque coppie di frasi e non costituisce una validazione.</p>
-        </article>
-      </div>
-      <div class="editorial-heading" style="margin-top:52px;margin-bottom:24px">
-        <div class="col-header" data-it="NUOVA MISURA · INSIEME 8" data-en="NEW MEASUREMENT · SET 8">NUOVA MISURA · INSIEME 8</div>
-        <h3 class="project-title" data-it="Il controllo numerico riduce le trappole, ma non supera ancora la verifica complessiva." data-en="Numerical checking reduces false-premise traps, but has not yet passed the overall evaluation.">Il controllo numerico riduce le trappole, ma non supera ancora la verifica complessiva.</h3>
-        <p class="editorial-lead" data-it="Confronto primario tra B1 (ricerca ibrida + Arcangeli) e B1+N (stessa risposta, con controllo numerico in modalità SOPPRIMI). Il campione comprende 106 domande su 11 documenti del dominio nucleare; 8 domande SENZA_RISPOSTA sono escluse dal confronto, quindi le risposte buone si riferiscono a 98 domande valutabili." data-en="Primary comparison between B1 (hybrid retrieval + Archangels) and B1+N (the same answer with numerical checking in SUPPRESS mode). The sample contains 106 questions across 11 nuclear-domain documents; 8 NO_ANSWER questions are excluded, so good-answer counts refer to 98 evaluable questions.">Confronto primario tra B1 (ricerca ibrida + Arcangeli) e B1+N (stessa risposta, con controllo numerico in modalità SOPPRIMI). Il campione comprende 106 domande su 11 documenti del dominio nucleare; 8 domande SENZA_RISPOSTA sono escluse dal confronto, quindi le risposte buone si riferiscono a 98 domande valutabili.</p>
-      </div>
-      <div class="metrics-grid">
-        <article class="metric-card"><div class="metric-value">73 → 79 / 98</div><div class="metric-label" data-it="Risposte valutate buone" data-en="Answers rated good">Risposte valutate buone</div><p class="metric-detail" data-it="B1: 73. B1+N: 79. Incremento netto di 6 risposte nel campione; non equivale a una validazione generale del controllo." data-en="B1: 73. B1+N: 79. Net increase of 6 answers in this sample; this does not amount to general validation of the control.">B1: 73. B1+N: 79. Incremento netto di 6 risposte nel campione; non equivale a una validazione generale del controllo.</p></article>
-        <article class="metric-card"><div class="metric-value">13 → 4 / 29</div><div class="metric-label" data-it="Trappole accettate" data-en="False-premise traps accepted">Trappole accettate</div><p class="metric-detail" data-it="Le trappole accettate sono scese da 13 con B1 a 4 con B1+N. Nel campione, nessuna trappola è stata peggiorata dal controllo." data-en="Accepted traps fell from 13 with B1 to 4 with B1+N. In this sample, no trap was made worse by the control.">Le trappole accettate sono scese da 13 con B1 a 4 con B1+N. Nel campione, nessuna trappola è stata peggiorata dal controllo.</p></article>
-        <article class="metric-card"><div class="metric-value">8 migliorate · 2 peggiorate</div><div class="metric-label" data-it="Coppie di risposte discordanti" data-en="Discordant answer pairs">Coppie di risposte discordanti</div><p class="metric-detail" data-it="Otto coppie sono migliorate, tutte di tipo TRAPPOLA; due sono peggiorate, entrambe SINO_VERO. Il test esatto sulle coppie ha dato p = 0,0547, sopra la soglia convenzionale 0,05. Il test per documento ha dato p = 0,0312." data-en="Eight pairs improved, all in the TRAP category; two worsened, both TRUE_FALSE questions. The exact paired test gave p = 0.0547, above the conventional 0.05 threshold. The document-level permutation test gave p = 0.0312.">Otto coppie sono migliorate, tutte di tipo TRAPPOLA; due sono peggiorate, entrambe SINO_VERO. Il test esatto sulle coppie ha dato p = 0,0547, sopra la soglia convenzionale 0,05. Il test per documento ha dato p = 0,0312.</p></article>
-        <article class="metric-card"><div class="metric-value">16 → 11</div><div class="metric-label" data-it="Risposte con almeno un errore grave" data-en="Answers with at least one serious error">Risposte con almeno un errore grave</div><p class="metric-detail" data-it="Nel confronto B1 → B1+N, le risposte con almeno un errore grave sono passate da 16 a 11. Restano falsi allarmi su premesse vere: il controllo può sopprimere conferme corrette." data-en="In the B1 → B1+N comparison, answers with at least one serious error fell from 16 to 11. False alarms on true premises remain: the control can suppress correct confirmations.">Nel confronto B1 → B1+N, le risposte con almeno un errore grave sono passate da 16 a 11. Restano falsi allarmi su premesse vere: il controllo può sopprimere conferme corrette.</p></article>
-      </div>
-      <div class="evidence-note" style="margin-top:16px" data-it="ESITO SECONDO IL PIANO PREDEFINITO: DA RIVEDERE. Il criterio decisionale ha impedito di accettare il controllo perché due peggioramenti si sono concentrati nello stesso tipo di domanda. Anche considerando il confronto appaiato, p = 0,0547 non è inferiore a 0,05. Il beneficio sulle trappole è promettente nel campione, ma non basta per dichiarare il controllo validato." data-en="OUTCOME UNDER THE PREDEFINED PLAN: NEEDS REVISION. The decision rule prevented acceptance because two regressions were concentrated in the same question type. Even considering the paired comparison, p = 0.0547 is not below 0.05. The benefit on traps is promising in this sample, but insufficient to declare the control validated.">ESITO SECONDO IL PIANO PREDEFINITO: DA RIVEDERE. Il criterio decisionale ha impedito di accettare il controllo perché due peggioramenti si sono concentrati nello stesso tipo di domanda. Anche considerando il confronto appaiato, p = 0,0547 non è inferiore a 0,05. Il beneficio sulle trappole è promettente nel campione, ma non basta per dichiarare il controllo validato.</div>
-      <div class="evidence-note" style="margin-top:16px" data-it="Altri risultati del Set 8: il confronto esplorativo B0/B1 (ricerca senza/con Arcangeli) ha registrato 2 miglioramenti e 2 peggioramenti, senza un miglioramento osservabile attribuibile agli Arcangeli. Le domande multi-documento hanno ottenuto 1 risposta buona su 6: selezione e copertura delle prove restano problemi aperti, distinti dal controllo numerico." data-en="Other Set 8 findings: the exploratory B0/B1 comparison (retrieval without/with Archangels) recorded 2 improvements and 2 regressions, with no observable improvement attributable to the Archangels. Multi-document questions received 1 good answer out of 6: evidence selection and coverage remain open problems, distinct from numerical checking.">Altri risultati del Set 8: il confronto esplorativo B0/B1 (ricerca senza/con Arcangeli) ha registrato 2 miglioramenti e 2 peggioramenti, senza un miglioramento osservabile attribuibile agli Arcangeli. Le domande multi-documento hanno ottenuto 1 risposta buona su 6: selezione e copertura delle prove restano problemi aperti, distinti dal controllo numerico.</div>
-      <div class="evidence-note" data-it="Nota metodologica: l'insieme 8 comprende 106 domande selezionate su 11 documenti del dominio nucleare. Le configurazioni e i criteri decisionali sono stati fissati prima della valutazione; le domande sono state generate da un modello esterno. Due istanze Claude isolate hanno giudicato le risposte senza accesso alla chiave; un terzo giudice è intervenuto sui disaccordi. Un controllo esterno su 34 risposte ha mostrato accordo a livello di risposta in 32 casi; in una delle 34 risposte il giudice esterno ha usato una combinazione di voti non prevista dall'istruzione; i voti sono stati usati come consegnati, senza modifiche. I risultati valgono per le versioni, le configurazioni, le domande e il dominio descritti; non sono un confronto con prodotti commerciali." data-en="Methodological note: Set 8 contains 106 selected questions across 11 nuclear-domain documents. Configurations and decision criteria were fixed before evaluation; questions were generated by an external model. Two isolated Claude instances judged the answers without access to the answer key; a third judge reviewed disagreements. An external check of 34 answers agreed at answer level in 32 cases; in one of the 34 answers, the external judge used a combination of labels not provided for by the instructions; the labels were used as delivered, without modification. Results apply to the versions, configurations, questions and domain described; they are not a comparison with commercial products.">Nota metodologica: l'insieme 8 comprende 106 domande selezionate su 11 documenti del dominio nucleare. Le configurazioni e i criteri decisionali sono stati fissati prima della valutazione; le domande sono state generate da un modello esterno. Due istanze Claude isolate hanno giudicato le risposte senza accesso alla chiave; un terzo giudice è intervenuto sui disaccordi. Un controllo esterno su 34 risposte ha mostrato accordo a livello di risposta in 32 casi; in una delle 34 risposte il giudice esterno ha usato una combinazione di voti non prevista dall'istruzione; i voti sono stati usati come consegnati, senza modifiche. I risultati valgono per le versioni, le configurazioni, le domande e il dominio descritti; non sono un confronto con prodotti commerciali.</div>
-      <div class="evidence-note" style="margin-top:16px" data-it="Integrità della verifica: una prima revisione del Set 8 aveva respinto 20 domande e lasciato passare 97 elementi con la stessa motivazione generica generata da uno script. Quella registrazione non dimostrava un esame individuale. La seconda revisione ha prodotto 117 motivazioni specifiche e distinte, ha respinto 28 domande e ha rilevato 9 elementi difettosi tra quelli inizialmente accettati. È un controllo sulla preparazione del test, non una misura delle prestazioni di risposta di Hydra. Principio: un esito positivo non prova da solo che il controllo sia stato realmente eseguito; ogni verifica deve lasciare una motivazione riferita all'elemento esaminato." data-en="Verification integrity: an initial Set 8 review rejected 20 questions and let 97 items pass with the same generic explanation generated by a script. That record did not demonstrate an individual examination. The second review produced 117 specific, distinct explanations, rejected 28 questions and found 9 defective items among those initially accepted. This is a check on test preparation, not a measure of Hydra's answer performance. Principle: a positive verdict alone does not prove that a check was actually performed; every verification must leave a reason tied to the item examined.">Integrità della verifica: una prima revisione del Set 8 aveva respinto 20 domande e lasciato passare 97 elementi con la stessa motivazione generica generata da uno script. Quella registrazione non dimostrava un esame individuale. La seconda revisione ha prodotto 117 motivazioni specifiche e distinte, ha respinto 28 domande e ha rilevato 9 elementi difettosi tra quelli inizialmente accettati. È un controllo sulla preparazione del test, non una misura delle prestazioni di risposta di Hydra. Principio: un esito positivo non prova da solo che il controllo sia stato realmente eseguito; ogni verifica deve lasciare una motivazione riferita all'elemento esaminato.</div>
-      <div class="evidence-note" style="margin-top:16px" data-it="Elaborazione locale su hardware accessibile. La configurazione sperimentale usa una GTX 1660 Super con 6 GB di VRAM e un modello linguistico da 9 miliardi di parametri eseguito in locale: nell'uso normale, ricerca e lettura avvengono in locale. Le valutazioni sperimentali hanno però usato servizi esterni (Gemini per la generazione delle domande; Claude e ChatGPT per il giudizio) su estratti di documenti pubblici. La riservatezza dell'intero processo dipende comunque da come sono gestiti archiviazione, backup, rete e componenti esterni." data-en="Local processing on accessible hardware. The experimental configuration uses a GTX 1660 Super with 6 GB of VRAM and a 9-billion-parameter language model running locally: in normal use, retrieval and reading take place locally. The experimental evaluations, however, used external services (Gemini to generate questions; Claude and ChatGPT to judge answers) on extracts from public documents. Confidentiality of the whole process still depends on how storage, backups, network and external components are handled.">Elaborazione locale su hardware accessibile. La configurazione sperimentale usa una GTX 1660 Super con 6 GB di VRAM e un modello linguistico da 9 miliardi di parametri eseguito in locale: nell'uso normale, ricerca e lettura avvengono in locale. Le valutazioni sperimentali hanno però usato servizi esterni (Gemini per la generazione delle domande; Claude e ChatGPT per il giudizio) su estratti di documenti pubblici. La riservatezza dell'intero processo dipende comunque da come sono gestiti archiviazione, backup, rete e componenti esterni.</div>
-    </div>
-  </section>
-
-  <!-- ESEMPIO REALE -->
-  <section class="section-editorial" id="esempio">
-    <div class="container">
-      <div class="editorial-heading">
-        <div class="col-header" data-it="UN ESEMPIO REALE" data-en="A REAL EXAMPLE">UN ESEMPIO REALE</div>
-        <h2 class="editorial-title" data-it="Una domanda con una premessa falsa." data-en="A question with a false premise.">Una domanda con una premessa falsa.</h2>
-        <p class="editorial-lead" data-it="Insieme 7, corsa del 27 ottobre 2026: PS + Arcangeli, lettore gemma2:9b in locale. La domanda contiene di proposito un numero sbagliato. Domanda, risposta e citazione sono riportate come registrate, senza modifiche." data-en="Set 7, run of 27 October 2026: PS + Archangels, gemma2:9b reader running locally. The question deliberately contains a wrong number. Question, answer and citation are shown as recorded, unedited.">Insieme 7, corsa del 27 ottobre 2026: PS + Arcangeli, lettore gemma2:9b in locale. La domanda contiene di proposito un numero sbagliato. Domanda, risposta e citazione sono riportate come registrate, senza modifiche.</p>
-      </div>
-      <div class="metrics-grid example-grid">
-        <article class="metric-card">
-          <div class="metric-label" data-it="Domanda" data-en="Question">Domanda</div>
-          <p class="metric-detail" style="font-size:14px;color:#f0f4fc">Does the Federal Budgetary Institution Scientific and Engineering Center for Nuclear and Radiation Safety have 500 people?</p>
-          <div class="metric-label" style="margin-top:16px" data-it="Risposta di Lucifero" data-en="Lucifero's answer">Risposta di Lucifero</div>
-          <p class="metric-detail" style="font-size:14px;color:#f0f4fc">No, the Federal Budgetary Institution Scientific and Engineering Center for Nuclear and Radiation Safety has 323 people.</p>
-        </article>
-        <article class="metric-card">
-          <div class="metric-label" data-it="Evidenza documentale" data-en="Documentary evidence">Evidenza documentale</div>
-          <p class="metric-detail" style="font-size:14px;color:#f0f4fc">&ldquo;Federal Budgetary Institution &ldquo;Scientific and Engineering Center for Nuclear and Radiation Safety&rdquo; (323 people)&rdquo;</p>
-          <p class="metric-detail" data-it="Rapporto nazionale della Federazione Russa per la Convenzione sulla sicurezza nucleare (CNS, nono riesame), capitolo Technical Support Organizations." data-en="National report of the Russian Federation for the Convention on Nuclear Safety (CNS, ninth review), chapter Technical Support Organizations.">Rapporto nazionale della Federazione Russa per la Convenzione sulla sicurezza nucleare (CNS, nono riesame), capitolo Technical Support Organizations.</p>
-          <div class="metric-label" style="margin-top:16px" data-it="Controllo" data-en="Checks">Controllo</div>
-          <p class="metric-detail" data-it="Il programma ha verificato che la citazione esiste parola per parola nel testo citato. Due giudici ciechi indipendenti (istanze di un modello linguistico) hanno votato la risposta buona: corregge la premessa, è sostenuta e tracciata. Limite: un caso singolo; sull'insieme 7 le trappole respinte correttamente sono state 8 su 13." data-en="The program verified that the citation exists word for word in the cited text. Two independent blind judges (language-model instances) rated the answer good: it corrects the premise and is supported and traced. Limitation: a single case; on Set 7, 8 of 13 traps were correctly rejected.">Il programma ha verificato che la citazione esiste parola per parola nel testo citato. Due giudici ciechi indipendenti (istanze di un modello linguistico) hanno votato la risposta buona: corregge la premessa, è sostenuta e tracciata. Limite: un caso singolo; sull'insieme 7 le trappole respinte correttamente sono state 8 su 13.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CRONOLOGIA DEL PROGETTO -->
-  <section class="section-editorial" id="percorso">
-    <div class="container">
-      <div class="editorial-heading">
-        <div class="col-header" data-it="IL PERCORSO" data-en="THE JOURNEY">IL PERCORSO</div>
-        <h2 class="editorial-title" data-it="Costruire, verificare, correggere." data-en="Build, test, revise.">Costruire, verificare, correggere.</h2>
-        <p class="editorial-lead" data-it="La progressione di Hydra non è una sequenza di promesse, ma un percorso iterativo in cui i risultati e i limiti delle prove influenzano le scelte successive." data-en="Hydra's progress is not a sequence of promises, but an iterative process in which test results and limitations inform the next design decisions.">La progressione di Hydra non è una sequenza di promesse, ma un percorso iterativo in cui i risultati e i limiti delle prove influenzano le scelte successive.</p>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item"><div class="timeline-index">01 / ORIGINE</div><h4 data-it="Il problema della qualità" data-en="The quality problem">Il problema della qualità</h4><p data-it="L'esigenza di collegare le informazioni alle fonti e rendere ricostruibile il percorso verso una conclusione." data-en="The need to connect information to sources and reconstruct the path to a conclusion.">L'esigenza di collegare le informazioni alle fonti e rendere ricostruibile il percorso verso una conclusione.</p></article>
-        <article class="timeline-item"><div class="timeline-index">02 / STRUTTURA</div><h4 data-it="RAG e ricerca ibrida" data-en="RAG and hybrid search">RAG e ricerca ibrida</h4><p data-it="Integrazione di ricerca keyword e semantica, struttura documentale e provenienza." data-en="Integration of keyword and semantic search, document structure and provenance.">Integrazione di ricerca keyword e semantica, struttura documentale e provenienza.</p></article>
-        <article class="timeline-item"><div class="timeline-index">03 / ARCHITETTURA</div><h4 data-it="Lucifero e Arcangeli" data-en="Lucifero and Archangels">Lucifero e Arcangeli</h4><p data-it="Coordinamento della ricerca e componenti specializzate per area, convocate con un voto." data-en="Search coordination and area-specialized components, convened by a vote.">Coordinamento della ricerca e componenti specializzate per area, convocate con un voto.</p></article>
-        <article class="timeline-item"><div class="timeline-index">04 / VERIFICA</div><h4 data-it="Test ciechi e controlli" data-en="Blind tests and controls">Test ciechi e controlli</h4><p data-it="Valutazione separata di recupero, qualità delle risposte, citazioni e controlli deterministici." data-en="Separate evaluation of retrieval, answer quality, citations and deterministic controls.">Valutazione separata di recupero, qualità delle risposte, citazioni e controlli deterministici.</p></article>
-        <article class="timeline-item"><div class="timeline-index">05 / COMPLETATO</div><h4 data-it="Insieme 8: DA RIVEDERE" data-en="Set 8: NEEDS REVISION">Insieme 8: DA RIVEDERE</h4><p data-it="Il controllo numerico ha ridotto le trappole accettate da 13 a 4 su 29, ma ha anche prodotto due peggioramenti su domande con premessa vera. Il piano predefinito ha classificato l'esito complessivo DA RIVEDERE." data-en="Numerical checking reduced accepted traps from 13 to 4 out of 29, but also caused two regressions on questions with true premises. The predefined plan classified the overall outcome as NEEDS REVISION.">Il controllo numerico ha ridotto le trappole accettate da 13 a 4 su 29, ma ha anche prodotto due peggioramenti su domande con premessa vera. Il piano predefinito ha classificato l'esito complessivo DA RIVEDERE.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEZIONE ROADMAP & STATO -->
-  <section class="section-roadmap" id="roadmap">
-    <div class="container">
-      <div class="roadmap-grid">
-        
-        <!-- Descrizione Sinistra -->
-        <div>
-          <div class="col-header" data-it="STATO E ROADMAP" data-en="STATUS & ROADMAP">STATO E ROADMAP</div>
-          <h3 class="roadmap-left-title" data-it="Un progetto in evoluzione." data-en="A project in evolution.">Un progetto in evoluzione.</h3>
-          <p class="roadmap-left-desc" data-it="Hydra è in sviluppo. Le funzionalità vengono implementate e sottoposte a verifiche circoscritte; i risultati non equivalgono a una garanzia generale di accuratezza." data-en="Hydra is under development. Features are implemented and tested within defined scopes; results do not amount to a general guarantee of accuracy.">Hydra è in sviluppo. Le funzionalità vengono implementate e sottoposte a verifiche circoscritte; i risultati non equivalgono a una garanzia generale di accuratezza.</p>
-        </div>
-
-        <!-- Colonne di Stato -->
-        <div class="roadmap-columns">
-          
-          <!-- Colonna IMPLEMENTATE -->
-          <div class="roadmap-col">
-            <div class="status-badge implementate">
-              <span class="status-dot"></span>
-              <span data-it="IMPLEMENTATO E SPERIMENTATO" data-en="IMPLEMENTED AND TESTED">IMPLEMENTATO E SPERIMENTATO</span>
-            </div>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                <i class="ph ph-check"></i>
-                <span data-it="Indice di 17,2 milioni di frasi originali con provenienza" data-en="Index of 17.2 million original sentences with provenance">Indice di 17,2 milioni di frasi originali con provenienza</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-check"></i>
-                <span data-it="Ricerca ibrida per parole e significato; Lucifero e Arcangeli; lettore locale" data-en="Hybrid keyword and semantic search; Lucifero and Archangels; local reader">Ricerca ibrida per parole e significato; Lucifero e Arcangeli; lettore locale</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-check"></i>
-                <span data-it="Controllo automatico delle citazioni e protocolli di giudizio cieco" data-en="Automatic citation checking and blind judging protocols">Controllo automatico delle citazioni e protocolli di giudizio cieco</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Colonna IN VALIDAZIONE -->
-          <div class="roadmap-col">
-            <div class="status-badge in-validazione">
-              <span class="status-dot"></span>
-              <span data-it="IN VALIDAZIONE" data-en="UNDER VALIDATION">IN VALIDAZIONE</span>
-            </div>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                <i class="ph ph-circle"></i>
-                <span data-it="Controllo numerico v3: corregge i falsi allarmi trovati nell'insieme 8 (numeri scritti in lettere, anni riferiti ad altri fatti); collaudato sui dati di sviluppo, da misurare sull'insieme 9." data-en="Numerical control v3: addresses the false alarms found in Set 8 (numbers written as words, years referring to other events); tested on development data, to be measured on Set 9.">Controllo numerico v3: corregge i falsi allarmi trovati nell'insieme 8 (numeri scritti in lettere, anni riferiti ad altri fatti); collaudato sui dati di sviluppo, da misurare sull'insieme 9.</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Colonna PIANIFICATE -->
-          <div class="roadmap-col">
-            <div class="status-badge pianificate">
-              <span class="status-dot"></span>
-              <span data-it="PIANIFICATE" data-en="PLANNED">PIANIFICATE</span>
-            </div>
-            <ul class="roadmap-list">
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Prototipo e validazione di un giudice locale per ridurre il ricorso a verifiche esterne" data-en="Prototype and validation of a local judge to reduce reliance on external evaluations">Prototipo e validazione di un giudice locale per ridurre il ricorso a verifiche esterne</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Miglioramento della selezione e della copertura delle prove, incluso il vocabolario collegato alla ricerca" data-en="Improve evidence selection and coverage, including vocabulary linked to retrieval">Miglioramento della selezione e della copertura delle prove, incluso il vocabolario collegato alla ricerca</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Insieme 9: nuova valutazione su domande indipendenti e piano fissato in anticipo" data-en="Set 9: new evaluation on independent questions with a plan fixed in advance">Insieme 9: nuova valutazione su domande indipendenti e piano fissato in anticipo</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Tabelle: celle con intestazioni, unità e note, ognuna citabile" data-en="Tables: cells with headers, units and notes, each citable">Tabelle: celle con intestazioni, unità e note, ognuna citabile</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Copertura delle parti della domanda e astensione quando le evidenze non bastano" data-en="Coverage of every part of a question, and abstention when evidence is insufficient">Copertura delle parti della domanda e astensione quando le evidenze non bastano</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Integrazione progressiva delle risorse linguistiche nella ricerca, dopo la misurazione del Set 9" data-en="Progressive integration of linguistic resources into retrieval, after Set 9 measurement">Integrazione progressiva delle risorse linguistiche nella ricerca, dopo la misurazione del Set 9</span>
-              </li>
-              <li class="roadmap-item">
-                <i class="ph ph-circle-dashed"></i>
-                <span data-it="Interfaccia locale per interrogare e verificare" data-en="Local interface for querying and verifying">Interfaccia locale per interrogare e verificare</span>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- Citazione Finale -->
-      <div class="roadmap-quote" data-it="“La conoscenza non è un punto d'arrivo, ma un percorso da esplorare.”" data-en="“Knowledge is not a destination, but a journey to be explored.”">
-        “La conoscenza non è un punto d'arrivo, ma un percorso da esplorare.”
-      </div>
-
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-inner">
-    <div>
-      © <span id="year"></span> HYDRA · Lucifer — The Morning Star
-    </div>
-    <div data-it="Conoscenza connessa · Evidenze esaminabili · Verifica in sviluppo" data-en="Connected Knowledge · Examined Evidence · Verification in development">
-      Conoscenza connessa · Evidenze esaminabili · Verifica in sviluppo
-    </div>
+   </div>
   </div>
-</footer>
+ </section>
 
-<!-- SCRIPT JS VANILLA BILINGUE (IT/EN) E MENU MOBILE -->
+ <section class="foundation" id="lucifero">
+  <div class="container">
+   <div class="section-head">
+    <div class="section-label" data-it="IL NUCLEO FONDATIVO" data-en="THE FOUNDATIONAL CORE">IL NUCLEO FONDATIVO</div>
+    <h2 class="section-title">Hydra–Lucifero</h2>
+    <p class="section-lead" data-it="La linea principale e fondativa della famiglia Hydra." data-en="The main and foundational line of the Hydra family.">La linea principale e fondativa della famiglia Hydra.</p>
+   </div>
+   <div class="foundation-card">
+    <h3 data-it="Il coordinamento della base informativa" data-en="Coordinating the information foundation">Il coordinamento della base informativa</h3>
+    <p data-it="Lucifero nasce all'interno del progetto Hydra con il compito di coordinare la sua base informativa. Nel suo sviluppo, il sistema si è articolato in un'organizzazione che comprende Lucifero e unità specializzate, gli Arcangeli, ciascuna riferita a un macrodominio informativo e operante sotto il coordinamento generale di Lucifero." data-en="Lucifero originated within the Hydra project to coordinate its information foundation. Its development includes a structure comprising Lucifero and specialized units, the Archangels, each associated with an information macro-domain and operating under Lucifero's overall coordination.">Lucifero nasce all'interno del progetto Hydra con il compito di coordinare la sua base informativa. Nel suo sviluppo, il sistema si è articolato in un'organizzazione che comprende Lucifero e unità specializzate, gli Arcangeli, ciascuna riferita a un macrodominio informativo e operante sotto il coordinamento generale di Lucifero.</p>
+   </div>
+   <div class="architecture-note">
+    <div class="note"><strong data-it="Lucifero" data-en="Lucifero">Lucifero</strong><p data-it="Coordinamento generale della base informativa di Hydra." data-en="Overall coordination of Hydra's information foundation.">Coordinamento generale della base informativa di Hydra.</p></div>
+    <div class="note"><strong data-it="Arcangeli" data-en="Archangels">Arcangeli</strong><p data-it="Unità specializzate nei diversi macrodomini, subordinate al coordinamento di Lucifero. La loro utilità nel miglioramento delle prestazioni è ancora oggetto di valutazione." data-en="Units specialized in different macro-domains, operating under Lucifero's coordination. Their contribution to performance improvement is still being evaluated.">Unità specializzate nei diversi macrodomini, subordinate al coordinamento di Lucifero. La loro utilità nel miglioramento delle prestazioni è ancora oggetto di valutazione.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="linee">
+  <div class="container">
+   <div class="section-head">
+    <div class="section-label" data-it="LA FAMIGLIA HYDRA" data-en="THE HYDRA FAMILY">LA FAMIGLIA HYDRA</div>
+    <h2 class="section-title" data-it="Linee applicative e percorsi di sviluppo." data-en="Application lines and development paths.">Linee applicative e percorsi di sviluppo.</h2>
+    <p class="section-lead" data-it="Le diverse iniziative condividono l'ambito della gestione della conoscenza, ma rispondono a obiettivi e destinatari differenti. La loro presentazione distingue sempre le funzionalità disponibili dalle attività ancora in sviluppo." data-en="The different initiatives share the field of knowledge management, but address different goals and audiences. Their presentation always distinguishes available capabilities from work still in progress.">Le diverse iniziative condividono l'ambito della gestione della conoscenza, ma rispondono a obiettivi e destinatari differenti. La loro presentazione distingue sempre le funzionalità disponibili dalle attività ancora in sviluppo.</p>
+   </div>
+   <div class="cards">
+    <article class="card">
+     <div class="card-top"><div class="card-icon"><i class="ph ph-stack"></i></div><span class="status" data-it="Nucleo principale" data-en="Main core">Nucleo principale</span></div>
+     <h3>Hydra–Lucifero</h3>
+     <p data-it="Il nucleo fondativo della famiglia: coordinamento della base informativa e sviluppo di un sistema orientato alla consultazione strutturata della conoscenza." data-en="The foundational core of the family: coordination of the information foundation and development of a system for structured knowledge access.">Il nucleo fondativo della famiglia: coordinamento della base informativa e sviluppo di un sistema orientato alla consultazione strutturata della conoscenza.</p>
+    </article>
+    <article class="card">
+     <div class="card-top"><div class="card-icon"><i class="ph ph-arrows-clockwise"></i></div><span class="status" data-it="Linea di sviluppo" data-en="Development line">Linea di sviluppo</span></div>
+     <h3>Hydra Evolution</h3>
+     <p data-it="Una linea di sviluppo che si innesta sull'architettura avanzata Hydra Lucifero–Arcangeli e ne esplora l'evoluzione." data-en="A development line built on the advanced Hydra Lucifero–Archangels architecture, exploring its further evolution.">Una linea di sviluppo che si innesta sull'architettura avanzata Hydra Lucifero–Arcangeli e ne esplora l'evoluzione.</p>
+    </article>
+    <article class="card">
+     <div class="card-top"><div class="card-icon"><i class="ph ph-folder-notch-open"></i></div><span class="status" data-it="Linea applicativa" data-en="Application line">Linea applicativa</span></div>
+     <h3>Hydra Lite</h3>
+     <p data-it="Una linea orientata alla gestione documentale e alla consultazione semplice delle informazioni, pensata per un utilizzo accessibile e autonomo." data-en="A line focused on document management and straightforward information access, designed for accessible and independent use.">Una linea orientata alla gestione documentale e alla consultazione semplice delle informazioni, pensata per un utilizzo accessibile e autonomo.</p>
+    </article>
+    <article class="card">
+     <div class="card-top"><div class="card-icon"><i class="ph ph-users-three"></i></div><span class="status" data-it="Linea applicativa" data-en="Application line">Linea applicativa</span></div>
+     <h3>Hydra Anziani</h3>
+     <p data-it="Una linea dedicata agli anziani e alle loro famiglie, con attenzione alla semplicità d'uso, all'accessibilità e alla possibilità di mantenere un supporto informativo nel quotidiano." data-en="A line dedicated to older adults and their families, with a focus on ease of use, accessibility, and everyday informational support.">Una linea dedicata agli anziani e alle loro famiglie, con attenzione alla semplicità d'uso, all'accessibilità e alla possibilità di mantenere un supporto informativo nel quotidiano.</p>
+    </article>
+   </div>
+  </div>
+ </section>
+
+ <section class="research" id="ricerca">
+  <div class="container">
+   <div class="section-head">
+    <div class="section-label" data-it="RICERCA ESPLORATIVA" data-en="EXPLORATORY RESEARCH">RICERCA ESPLORATIVA</div>
+    <h2 class="section-title">Hydra Reduction</h2>
+    <p class="section-lead" data-it="Un percorso di ricerca dedicato a esplorare nuovi approcci alla selezione e all'organizzazione dell'informazione. È un'attività esplorativa: non viene presentata come prodotto disponibile né come metodologia già validata." data-en="A research path exploring new approaches to information selection and organization. It is exploratory work: it is not presented as an available product or as an already validated methodology.">Un percorso di ricerca dedicato a esplorare nuovi approcci alla selezione e all'organizzazione dell'informazione. È un'attività esplorativa: non viene presentata come prodotto disponibile né come metodologia già validata.</p>
+   </div>
+   <div class="research-grid">
+    <div class="research-panel"><h3 data-it="Una direzione di ricerca" data-en="A research direction">Una direzione di ricerca</h3><p data-it="L'obiettivo è studiare come rendere più pertinenti e leggibili le informazioni rispetto a una domanda o a un contesto, mantenendo attenzione alle relazioni e ai limiti delle evidenze." data-en="The aim is to study how to make information more relevant and intelligible in relation to a question or context, while remaining attentive to relationships and evidential limits.">L'obiettivo è studiare come rendere più pertinenti e leggibili le informazioni rispetto a una domanda o a un contesto, mantenendo attenzione alle relazioni e ai limiti delle evidenze.</p></div>
+    <div class="research-panel"><h3 data-it="Ricerca, non promessa" data-en="Research, not a promise">Ricerca, non promessa</h3><p data-it="Le ipotesi vengono considerate tali finché non sono sostenute da prove adeguate. I risultati, compresi quelli negativi, devono poter orientare le decisioni successive." data-en="Hypotheses remain hypotheses until supported by adequate evidence. Results, including negative ones, should inform subsequent decisions.">Le ipotesi vengono considerate tali finché non sono sostenute da prove adeguate. I risultati, compresi quelli negativi, devono poter orientare le decisioni successive.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="principi">
+  <div class="container">
+   <div class="section-head">
+    <div class="section-label" data-it="IL METODO" data-en="THE APPROACH">IL METODO</div>
+    <h2 class="section-title" data-it="La conoscenza richiede trasparenza sui propri limiti." data-en="Knowledge requires transparency about its limits.">La conoscenza richiede trasparenza sui propri limiti.</h2>
+    <p class="section-lead" data-it="Hydra non stabilisce la verità. La qualità di una conclusione dipende dalla qualità e dall'affidabilità delle informazioni e delle evidenze disponibili." data-en="Hydra does not establish truth. The quality of a conclusion depends on the quality and reliability of the available information and evidence.">Hydra non stabilisce la verità. La qualità di una conclusione dipende dalla qualità e dall'affidabilità delle informazioni e delle evidenze disponibili.</p>
+   </div>
+   <div class="cards">
+    <article class="card"><div class="card-top"><div class="card-icon"><i class="ph ph-check-circle"></i></div></div><h3 data-it="Distinguere ciò che è noto" data-en="Distinguish what is known">Distinguere ciò che è noto</h3><p data-it="Rendere riconoscibili le informazioni sostenute dalle fonti disponibili." data-en="Make information supported by available sources identifiable.">Rendere riconoscibili le informazioni sostenute dalle fonti disponibili.</p></article>
+    <article class="card"><div class="card-top"><div class="card-icon"><i class="ph ph-question"></i></div></div><h3 data-it="Riconoscere ciò che manca" data-en="Recognize what is missing">Riconoscere ciò che manca</h3><p data-it="Non colmare arbitrariamente lacune o informazioni non documentate." data-en="Do not arbitrarily fill gaps or undocumented information.">Non colmare arbitrariamente lacune o informazioni non documentate.</p></article>
+    <article class="card"><div class="card-top"><div class="card-icon"><i class="ph ph-scales"></i></div></div><h3 data-it="Mantenere visibili le divergenze" data-en="Keep disagreements visible">Mantenere visibili le divergenze</h3><p data-it="Non confondere convergenza, coerenza e conferma indipendente." data-en="Do not confuse convergence, consistency, and independent confirmation.">Non confondere convergenza, coerenza e conferma indipendente.</p></article>
+    <article class="card"><div class="card-top"><div class="card-icon"><i class="ph ph-arrows-counter-clockwise"></i></div></div><h3 data-it="Rivedere le conclusioni" data-en="Revisit conclusions">Rivedere le conclusioni</h3><p data-it="Nuove informazioni affidabili possono richiedere di correggere o riformulare ciò che si riteneva noto." data-en="New reliable information may require correcting or reformulating what was previously considered known.">Nuove informazioni affidabili possono richiedere di correggere o riformulare ciò che si riteneva noto.</p></article>
+   </div>
+  </div>
+ </section>
+
+ <section id="contatti">
+  <div class="container">
+   <div class="section-head">
+    <div class="section-label" data-it="CONTATTI" data-en="CONTACT">CONTATTI</div>
+    <h2 class="section-title" data-it="Conoscere il progetto, avviare un dialogo." data-en="Learn about the project, start a conversation.">Conoscere il progetto, avviare un dialogo.</h2>
+   </div>
+   <div class="contact-row">
+    <p data-it="Per informazioni, confronti o manifestazioni di interesse sulle attività della famiglia Hydra." data-en="For information, discussion, or expressions of interest in the Hydra family projects.">Per informazioni, confronti o manifestazioni di interesse sulle attività della famiglia Hydra.</p>
+    <a class="contact-link" href="https://www.linkedin.com/in/galliano-brigo-6104b4107/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="ph ph-arrow-up-right"></i></a>
+   </div>
+  </div>
+ </section>
+</main>
+<footer><div class="container footer-inner"><span>© <span id="year"></span> HYDRA</span><span data-it="Ricerca indipendente · Conoscenza · Sviluppo" data-en="Independent research · Knowledge · Development">Ricerca indipendente · Conoscenza · Sviluppo</span></div></footer>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Impostazione anno corrente
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Gestione Switch Lingua (IT / EN)
-  const langBtns = document.querySelectorAll('.lang-btn');
-  
-  function setLanguage(lang) {
-    document.documentElement.lang = lang;
-    
-    // Cambia il testo di tutti gli elementi registrati
-    document.querySelectorAll('[data-it][data-en]').forEach(el => {
-      const targetText = el.getAttribute(`data-${lang}`);
-      if (targetText) {
-        el.innerHTML = targetText;
-      }
-    });
-
-    // Aggiorna stato attivo dei bottoni
-    langBtns.forEach(btn => {
-      if (btn.getAttribute('data-lang') === lang) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-
-    // Aggiorna Document Title
-    document.title = lang === 'it' 
-      ? 'HYDRA — Lucifer (The Morning Star) | Conoscenza ed evidenze' 
-      : 'HYDRA — Lucifer (The Morning Star) | Knowledge and Evidence';
-  }
-
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selectedLang = btn.getAttribute('data-lang');
-      setLanguage(selectedLang);
-    });
-  });
-
-  // Gestione Menu Mobile Toggle
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  mobileToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
-
-  // Chiudi menu quando si clicca un link
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-    });
-  });
+document.addEventListener('DOMContentLoaded',()=>{
+ const year=document.getElementById('year');year.textContent=new Date().getFullYear();
+ const nav=document.getElementById('navMenu'),toggle=document.getElementById('menuToggle');
+ toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+ const buttons=document.querySelectorAll('[data-lang]');
+ function setLanguage(lang){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-it][data-en]').forEach(el=>{el.textContent=el.getAttribute('data-'+lang);});
+  buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  document.title=lang==='it'?'HYDRA | Una famiglia di progetti per la conoscenza':'HYDRA | A family of projects for knowledge';
+  document.querySelector('meta[name="description"]').content=lang==='it'?'Hydra è una famiglia di progetti dedicati alla gestione della conoscenza, alle informazioni documentali e alla ricerca su sistemi intelligenti più tracciabili e consapevoli dei propri limiti.':'Hydra is a family of projects focused on knowledge management, document information, and research into more traceable intelligent systems aware of their limitations.';
+ }
+ buttons.forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
 });
 </script>
 </body>
