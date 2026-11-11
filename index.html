@@ -1393,7 +1393,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-hydra-dato]').forEach(el => {
       const d = hydraData[el.getAttribute('data-hydra-dato')]; if (!d) return;
       const v = typeof d.valore === 'number' ? new Intl.NumberFormat(lang === 'zh' ? 'zh-CN' : lang, {maximumFractionDigits:2}).format(d.valore) : d.valore;
-      const u = d.unita === 'documenti' ? (lang === 'it' ? ' documenti' : ' documents') : d.unita === 'frasi' ? (lang === 'it' ? ' frasi' : ' sentences') : d.unita === 'righe' ? (lang === 'it' ? ' righe' : ' records') : d.unita === 'su 120' ? ' / 120' : d.unita === 'su 90' ? ' / 90' : '';
+      const u = d.unita === 'documenti' ? (lang === 'it' ? ' documenti' : ' documents') : d.unita === 'frasi' ? (lang === 'it' ? ' frasi' : ' sentences') : d.unita === 'righe' ? (lang === 'it' ? ' righe' : ' records') : d.unita === 'su 120' ? ' / 120' : d.unita === 'su 90' ? ' / 90' : d.unita === 'su 60' ? ' / 60' : d.unita === 'elementi' ? (lang === 'it' ? ' elementi' : ' items') : '';
       el.textContent = v + u;
     });
   }
@@ -1592,8 +1592,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "fonte": "confronto Set 8"
   },
   "controlli_lessicali": {
-    "valore": 10,
-    "unita": "controlli",
+    "valore": "10 / 10",
+    "unita": "",
     "data": "2026-11",
     "stato": "storico",
     "fonte": "controlli lessicali iniziali"
