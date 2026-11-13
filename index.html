@@ -355,7 +355,7 @@ project_kicker:"项目起源与状态",project_title:"通过持续评估推进�
 contact_kicker:"进一步了解 HYDRA",contact_title:"交流值得解决的问题。",contact_text:"如果您处理复杂信息集合，并关注可追溯性、数据质量、证据管理或文档检索系统，我很乐意与您讨论该项目及其局限。",cta_linkedin:"通过 LinkedIn 联系",footer_text:"独立研究与开发 · 文档管理 · 可核查证据"
 }
 };
-function setLanguage(lang){
+function setLanguage(lang,remember=true){
   const data=translations[lang]||translations.it;
   document.documentElement.lang=lang;
   document.title=data.title;
@@ -364,6 +364,7 @@ function setLanguage(lang){
   document.querySelectorAll(".lang").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
   const toggle=document.getElementById("menuToggle");
   toggle.setAttribute("aria-label",lang==="it"?"Apri menu":lang==="en"?"Open menu":lang==="es"?"Abrir menú":lang==="de"?"Menü öffnen":lang==="fr"?"Ouvrir le menu":lang==="pl"?"Otwórz menu":"打开菜单");
+  if(remember){try{localStorage.setItem("hydra-language",lang);}catch(e){}}
 }
 document.addEventListener("DOMContentLoaded",()=>{
   document.getElementById("year").textContent=new Date().getFullYear();
@@ -371,7 +372,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   const toggle=document.getElementById("menuToggle"),menu=document.getElementById("navMenu");
   toggle.addEventListener("click",()=>{const open=menu.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));});
   menu.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{menu.classList.remove("open");toggle.setAttribute("aria-expanded","false");}));
-  setLanguage("it");
+  let initialLanguage="it";
+  try{const saved=localStorage.getItem("hydra-language");if(saved&&translations[saved])initialLanguage=saved;}catch(e){}
+  setLanguage(initialLanguage,false);
 });
 </script>
 </body>
