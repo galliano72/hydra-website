@@ -1,48 +1,67 @@
-# Registro delle correzioni — revisione 2026-11-17
+# Registro delle correzioni — sito HYDRA
 
-## Scopo e stato
+## Introduzione
 
-Questo registro viene istituito in questo ramo perché nel repository, al momento della verifica del 17 novembre 2026, non è stato individuato un registro precedente. Non si presume quindi uno storico che non è stato possibile recuperare.
+Quando un numero o un'interpretazione pubblicata risulta sbagliata o superata, la correggiamo e lo scriviamo qui: data, cosa è cambiato, perché, e da dove viene il dato corretto. Le modifiche solo grafiche non sono registrate.
 
-Ramo di lavoro: `aggiornamento-dati-verificati-2026-11-17`
+Il registro è stato creato nel repository il 17 novembre 2026. Il documento preparatorio dell'11 novembre era rimasto fuori dal repository; le sue voci sono riportate qui come storico iniziale, senza fingere che il registro fosse già stato creato allora.
 
-Stato iniziale: **aperto**. Le voci sotto descrivono le correzioni richieste e i controlli da completare; non attestano che il sito sia già stato aggiornato o pubblicato. Il ramo principale e il sito pubblicato non devono essere modificati in questa fase.
+Ramo di lavoro: `aggiornamento-dati-verificati-2026-11-17`.
 
-## Correzioni richieste per il sito
+**Stato:** registro aggiornato sulla base dei due documenti forniti il 17/11/2026. Le voci descrivono correzioni e verifiche da recepire nel sito; non attestano che tutte le modifiche siano già state applicate o pubblicate. Il ramo principale e il sito pubblico restano invariati fino alla verifica e all'approvazione finale.
 
-| ID | Area | Correzione / dato da usare | Stato |
-|---|---|---|---|
-| C-001 | Indice generale | Sostituire il vecchio conteggio di 9.993.295 frasi utili (e ogni variante precedente) con **10.048.158 frasi utili ricercabili**, definizione: frasi non marcate come rumore e con testo non vuoto; rilevazione 16/11/2026. | Da applicare e verificare in tutte le lingue |
-| C-002 | Indice generale | Distinguere **19.486.768 righe** nella tabella `lotto` di `indice_frasi/frasi.sqlite` da **10.048.158 frasi utili ricercabili**; non presentarli come conteggi equivalenti. | Da applicare |
-| C-003 | Indice generale | Indicare **1.200 lotti vettoriali**; **9.987.317** frasi utili nei domini attivi non protetti; **589.833** file attivi fuori dai domini protetti. Rilevazioni del 16/11/2026. | Da applicare |
-| C-004 | Dominio nucleare | Dato aggiornato: **110 file attivi, 49.942 frasi utili**, rilevazione 11/11/2026. Non sostituire con il conteggio storico di 58.096 senza spiegare la diversa base di conteggio. | Da applicare |
-| C-005 | Infrastruttura | Descrivere l'infrastruttura verificata: **4 PC di recupero**; GPU: una GTX 1660 Super da 6 GB e tre schede da 4 GB (una Quadro P1000 e due Quadro K2200). Rimuovere l'affermazione non verificata sulla rete a 100 Mbit/s. | Da applicare |
-| C-006 | Misure novembre | Spiegare che il test misura il recupero delle evidenze: per ogni domanda HYDRA seleziona 8 frasi; successo solo se tutte le frasi chiave attese sono presenti nelle 8. Non è una misura della qualità della risposta finale e il modello generativo non è stato eseguito. Dominio nucleare, 49.942 frasi; 211 domande di sviluppo, non indipendenti né blind. | Da applicare |
-| C-007 | Risultato di riferimento | Configurazione del 17/11/2026: Arcangeli attivi, suddivisione deterministica delle domande attiva, sigle e vocabolario disattivati, nessun filtro a grafo. Esito: **161/211** domande riuscite; **268** frasi chiave attese, **259/268** tra i candidati recuperati e **234/268** nelle 8 prove finali. | Da applicare |
-| C-008 | Analisi errori | Rendere visibile la ripartizione dei 50 insuccessi: **21 selezione** (frase chiave tra i candidati ma fuori dalle 8 prove), **20 segnalazione di premessa falsa** (trappole non segnalate), **9 recupero**. Non confondere le categorie. | Da applicare |
-| C-009 | Set di domande | Specificare: ESPERIENZA45 sviluppo; Set7 60 sviluppo; Set8 106 sviluppo; Set9 224 righe, 86 utilizzabili, passato allo sviluppo il 16/11 e relativo a nucleare/medicina/astronomia; PROVA blind e mai usato; Set5/Set6 sigillati. Le misure di novembre qui riportate usano 211 domande (45+60+106). | Da applicare |
-| C-010 | Esperimenti novembre | Riportare i cinque esiti, compresi quelli negativi: 6 modelli embedding e 63 combinazioni senza vantaggio (parità nel set di conferma); 4 piccoli modelli linguistici per la suddivisione senza vantaggio (da −1 a +1); vocabolario sinonimico senza effetto (0); sigle/grafo acronimi effetto minimo (+1); suddivisione deterministica a regole mantenuta (+3, da 158/211 a 161/211). Non generalizzare la selezione di bge-m3: sul set di conferma 47/60, pari a granite. | Da applicare |
-| C-011 | Robustezza | Pubblicare i quattro test del 16/11 con cautela: rimozione nomi propri 133/211 (−28; McNemar esatto p=2,5×10⁻⁷); rimozione anni 158/211 (−3, non significativo); sostituzione con sinonimo 160/211 (−1, non significativo); rimozione numeri 160/211 (−1, non significativo). Dei 30 casi persi rimuovendo i nomi, in 22 la frase chiave era ancora tra i candidati. Limitare le conclusioni a queste quattro perturbazioni. | Da applicare |
-| C-012 | Multi-RAG medicina/astronomia | Indicare come **esperimento avviato il 17/11/2026, risultato in corso**: 100.023 frasi da 2.285 file (medicina 50.013 frasi/910 file; astronomia 50.010 frasi/1.375 file), sei modelli, quattro macchine. Corpus identificato dal prefisso SHA-256 `d4688477d4c25b3e`. Non anticipare conclusioni. | Da applicare |
-| C-013 | Qualità risposta | Se mantenute, isolare le percentuali disponibili dal test blind del 22/10/2026: giudice 1 58,7%; giudice 2 66,7%; lettura conservativa 57,2%; lettura ampia 68,1%. Non sono misure attuali e non va inventato il numero di domande. | Da verificare / eventualmente rimuovere |
-| C-014 | Affermazioni non supportate | Eliminare “60–80%”, confronti generali di superiorità rispetto al RAG tradizionale, vantaggi dichiarati dei multi-embedding, certificazioni/conformità, copertura presentata come certificata e grafo presentato come filtro candidati. Non pubblicare nomi interni dei componenti. | Da applicare |
-| C-015 | Lingue | Controllare tutte e sette le versioni linguistiche: numeri, date, definizioni, qualifiche dei set di sviluppo, risultati negativi e stato “in corso” devono essere coerenti. | Da completare |
+## Storico iniziale — 11 novembre 2026
 
-## Regole editoriali
+Le seguenti sono tutte le voci effettivamente presenti nella tabella del § 3 di `sito_modifiche_11nov_v1.md`. Il documento allegato contiene **cinque** righe, non sei; non è stata inventata una sesta voce.
 
-1. Ogni numero deve avere data, ambito e definizione.
-2. Separare dati misurati, risultati di sviluppo, test blind indipendenti, ipotesi e attività in corso.
-3. Non trasformare un risultato circoscritto in una conclusione generale.
-4. Conservare gli esiti negativi e inconcludenti: fanno parte dei risultati.
-5. Se un dato non è verificabile, rimuoverlo invece di riscriverlo in modo vago.
-6. Le modifiche restano nel ramo di lavoro fino alla verifica completa; pubblicazione e merge richiedono una decisione esplicita.
+| Data | Cosa | Prima | Ora | Perché |
+|---|---|---|---|---|
+| 11/11/2026 | Correttezza dei fatti estratti da più modelli (pilota del 22/10, 615 fatti) | circa 60–80% | **57,2–68,1%**, secondo il criterio di combinazione dei due arbitri | Il valore precedente veniva da un riepilogo, non dalla misura. Ricalcolato dai voti originali dei due arbitri ciechi. Anche il periodo era indicato male: era il pilota di ottobre, non agosto–settembre. |
+| 11/11/2026 | Frasi utili e righe dell'indice | 9,96 milioni; 19,4 milioni | **9,99 milioni; 19,5 milioni** | Il dato precedente era di prima del terzo passaggio della correzione dell'indice. |
+| 11/11/2026 | Frasi dei 109 documenti nucleari usate da Hydra Evolution | 49.878 | **49.942** | 49.878 era il numero sull'indice prima della correzione; 49.942 è sull'indice corretto. Il valore precedente resta valido come dato storico. |
+| 11/11/2026 | Protocollo di Hydra Evolution | "congelato prima del calcolo" | **congelato in due fasi**: prima del calcolo dei vettori; i programmi di misura prima di qualunque misura | Descrizione più precisa di quanto avvenuto. |
+| 11/11/2026 | Storico delle sperimentazioni | la formula "non pianificato per il ripristino" sembrava riferita anche al grafo e all'estrazione dei fatti | riferita **solo** al giudice locale | Grafo ed estrazione dei fatti saranno rimisurati nelle condizioni nuove. |
+
+## Correzioni e aggiornamenti — 17 novembre 2026
+
+| Data | Cosa | Prima / formulazione da correggere | Dato o formulazione corretta | Motivo, fonte e stato |
+|---|---|---|---|---|
+| 17/11/2026 | Conteggio delle frasi utili/cercabili | 9.993.295 (in precedenza anche 9,96 milioni) | **10.048.158 frasi cercabili**: righe dell'indice non marcate come rumore e con testo non vuoto; misura del 16/11 | La definizione di "utile" è diversa rispetto ai conteggi precedenti. Sul sito usare solo il dato del 16/11 con la definizione esplicita. Fonte: `conta_frasi_domini_v1.py`, Testa A. **Da applicare e verificare nelle sette lingue.** |
+| 17/11/2026 | Righe dell'indice e lotti vettoriali | Dato arrotondato o confuso con il numero di frasi utili | **19.486.768 righe** nella tabella `lotto` di `indice_frasi/frasi.sqlite`; **1.200 lotti** | Sono conteggi distinti dalle frasi cercabili. Fonte: `lotti_indice_v1.txt`, 16/11. **Da applicare.** |
+| 17/11/2026 | Altri conteggi dell'indice | Non specificati o non distinti | **9.987.317** frasi utili in domini attivi non protetti; **589.833** file attivi fuori dai domini protetti | Conteggi del 16/11 prodotti da `conta_frasi_domini_v1.py`. **Da applicare.** |
+| 17/11/2026 | Dominio nucleare | Conteggi storici non accompagnati dalla definizione/perimetro aggiornato | **110 file attivi; 49.942 frasi utili**, misura dell'11/11 | Fonte: `verifica_base_fase2_v8.py`. Non confondere con conteggi storici ottenuti con criteri diversi. **Da applicare.** |
+| 17/11/2026 | Collegamento di rete fra le macchine | "100 Mbit/s nominali" oppure proposta precedente di eliminare il dato | **100 Mbit/s misurati** fra le macchine, su schede che supporterebbero il gigabit | La v2 del documento numeri chiarisce che il valore è una misura reale dell'inventario del 10/11, non la velocità nominale delle schede. La precedente indicazione di rimuoverlo era errata. **Da correggere nel sito.** |
+| 17/11/2026 | Perimetro delle misure di novembre | Risultati presentati senza chiarire che cosa misurano | Misurano il recupero delle evidenze: una domanda riesce solo se tutte le frasi chiave attese sono incluse nelle 8 frasi selezionate | Non misura la qualità della risposta finale; il modello generativo non gira. Solo dominio nucleare (49.942 frasi) e insiemi di sviluppo, non prove indipendenti. **Da esplicitare accanto ai risultati.** |
+| 17/11/2026 | Risultato di riferimento | Baseline precedente di 158/211 senza divisione deterministica della domanda | **161/211** con Arcangeli attivi, divisione della domanda a regole fisse attiva, sigle e vocabolario spenti, nessun grafo come filtro; 259/268 frasi chiave fra i candidati e 234/268 fra le 8 prove | Misura del 17/11 su 211 domande di sviluppo. **Da pubblicare con perimetro e configurazione.** |
+| 17/11/2026 | Ripartizione degli insuccessi | Mancava una diagnosi distinta dei punti di perdita | **21 selezione; 20 segnale di premessa falsa; 9 recupero** | Le 50 domande fallite sono ripartite per il punto in cui si perde l'evidenza o manca il segnale. Fonte: risultato di riferimento del 17/11. **Da aggiungere.** |
+| 17/11/2026 | Esperimenti comparativi di novembre | Rischio di presentare solo gli esperimenti favorevoli o di attribuire vantaggi generali | Cinque esiti: 63 combinazioni di 6 embedding senza vantaggio (pareggio sul set di conferma); 4 piccoli modelli linguistici per la scomposizione senza vantaggio (da −1 a +1); vocabolario sinonimico 0; sigle +1; divisione a regole fisse +3, mantenuta | Base 158/211 senza divisione, 161/211 dopo. Il vantaggio di bge-m3 non si conferma: 47/60, pari a granite, sul set di conferma. **Da aggiungere includendo gli esiti negativi.** |
+| 17/11/2026 | Test di robustezza | Nessuna distinzione tra le perturbazioni testate | Rimozione nomi propri: 133/211 (−28; McNemar esatto p=2,5×10⁻⁷); rimozione anni: 158/211 (−3, non significativo); sinonimo: 160/211 (−1, non significativo); rimozione numeri: 160/211 (−1, non significativo) | Dei 30 casi persi togliendo i nomi, in 22 la frase chiave era ancora fra i candidati. Sono state provate quattro perturbazioni soltanto: non concludere che solo i nomi contino. **Da aggiungere con cautela.** |
+| 17/11/2026 | Riproducibilità del codice di misura V2/V3 | Vecchia formulazione: 848 prove e 106 risultati identici in una singola corsa | **30 coppie di corse; 2.265 righe confrontate; 0 differenze di esito; 0 differenze nell'insieme delle 8 prove; 1 differenza di solo ordine** fra prove a pari punteggio | La differenza d'ordine si ripresenta anche fra due corse dello stesso programma e dipende dalle librerie di calcolo. Va descritto come controllo interno di riproducibilità del codice di misura, non come prestazione/capacità di HYDRA. **Sostituire la vecchia forma; pubblicare solo se la distinzione è chiara in tutte le lingue.** |
+| 17/11/2026 | Avvio Multi-RAG medicina/astronomia | Stato non indicato o risultato anticipato | Esperimento avviato il 17/11, **risultato in corso**: 100.023 frasi, 2.285 file (910 medicina, 1.375 astronomia), sei modelli, quattro macchine; SHA-256 iniziale `d4688477d4c25b3e` | Non è ancora possibile affermare che l'ipotesi sia confermata o smentita. **Da aggiungere come attività in corso, senza anticipare esiti.** |
+| 17/11/2026 | Percentuali di qualità delle risposte | Percentuali senza data o perimetro, oppure generica indicazione "60–80%" | Unico riferimento disponibile: collaudo cieco del 22/10/2026, arbitro 1 58,7%; arbitro 2 66,7%; lettura prudente 57,2%; lettura larga 68,1% | Si riferiscono a quel collaudo e a quel corpus, non sono una misura attuale. Il numero di domande non è indicato nel documento v2; non inventarlo. **Verificare il testo attuale e accompagnare ogni dato con data e perimetro.** |
+| 17/11/2026 | Risultati storici 69/90, 119/120 e 46/60–48/60 | Numeri presenti nel sito, ma non inclusi nel documento dei numeri verificati v2 | **Nessuna correzione numerica autorizzata per ora** | La loro assenza dal documento v2 significa che non sono stati verificati in questa revisione, non che siano falsi. Galliano deve cercarne le fonti su Testa A. Se fonte con data e perimetro: mantenere con tali dettagli; se fonte senza perimetro: rimuovere dal sito e registrare come storico senza perimetro; se nessuna fonte: rimuovere numero e frase. **In attesa della ricerca su Testa A.** |
+| 17/11/2026 | Affermazioni non supportate | "60–80%", superiorità generale sul RAG tradizionale, vantaggio generale multi-embedding, certificazioni/conformità, copertura presentata come certificata, grafo come filtro candidati, nomi interni | Eliminare tali affermazioni; non usare "Lucifero" o nomi interni nella comunicazione pubblica | Il documento numeri v2 non fornisce supporto per queste affermazioni; il grafo come filtro è stato provato e abbandonato perché peggiorava. Tracciabilità e ripetibilità possono essere descritte come principi di progetto, non certificazioni. **Controllare tutte le sette lingue.** |
+
+## Regole editoriali e di verifica
+
+1. Una sola fonte per ogni numero. Se un numero appare in più punti o lingue, deve essere identico e provenire dalla stessa fonte indicata.
+2. Ogni numero deve avere data, perimetro e definizione; non inventare date o periodi per misure precedenti.
+3. Distinguere dati misurati, risultati su insiemi di sviluppo, prove cieche indipendenti, ipotesi e attività in corso.
+4. Conservare anche gli esiti negativi e inconcludenti.
+5. Non presentare i risultati di sviluppo come risultati indipendenti né come punteggio complessivo di HYDRA.
+6. Se un dato non è verificabile, rimuovere la frase dal sito invece di riscriverla in modo più vago.
+7. I dati storici non si cancellano dal registro: si annota quando e perché sono stati sostituiti.
+8. Le traduzioni nelle sette lingue devono mantenere le stesse cautele e lo stesso perimetro, non soltanto gli stessi numeri.
 
 ## Tracciamento delle verifiche
 
 | Data | Attività | Esito |
 |---|---|---|
-| 17/11/2026 | Verifica iniziale del repository | Individuati `index.html` e `README.md`; nessun registro delle correzioni trovato nel repository. |
-| 17/11/2026 | Creazione di questo registro | Prima versione creata nel ramo separato; nessuno storico precedente ricostruito. |
-| 17/11/2026 | Revisione delle sette lingue e aggiornamento di `index.html` | Da completare. |
-| — | Verifica finale, controllo dei dati e confronto con il ramo principale | Da completare. |
-| — | Eventuale merge/pubblicazione | Non autorizzato in questa fase. |
+| 11/11/2026 | Preparazione del documento `sito_modifiche_11nov_v1.md` | Registro progettato e cinque prime voci redatte nel documento; il registro non fu creato nel repository in quella data. |
+| 17/11/2026 | Verifica del repository | Nessun registro precedente trovato; presenti `index.html` e `README.md`. |
+| 17/11/2026 | Creazione del registro nel repository | Creato nel ramo `aggiornamento-dati-verificati-2026-11-17`, includendo le cinque voci storiche effettivamente presenti nell'allegato. |
+| 17/11/2026 | Revisione sulla base di `sito_numeri_verificati_17nov_v2.md` | Integrate le correzioni della v2, inclusi rete misurata, controllo V2/V3 su 30 coppie e stato di verifica dei tre risultati storici. |
+| — | Aggiornamento di `index.html` e controllo delle sette lingue | Da completare. |
+| — | Ricerca su Testa A delle fonti per 69/90, 119/120 e 46/60–48/60 | Da eseguire da Galliano; nessuna decisione di rimozione presa. |
+| — | Verifica finale e confronto con il ramo principale | Da completare. |
+| — | Merge e pubblicazione | Non eseguiti; richiedono approvazione esplicita. |
