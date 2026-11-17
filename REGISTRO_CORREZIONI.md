@@ -109,3 +109,8 @@ La versione 4 del documento `sito_numeri_verificati_17nov` sostituisce integralm
 - Non scrivere che HYDRA «riconosce le premesse false» come capacità acquisita: il controllo attuale verifica la presenza di numeri, anni e nomi, non la loro attribuzione.
 - La vettorializzazione di medicina e astronomia è conclusa; la valutazione comparativa è ancora da eseguire. Non anticipare risultati.
 - La v4 del documento dei numeri verificati è la fonte corrente per tutte le sette lingue. Ogni numero non elencato richiede verifica prima della pubblicazione.
+
+
+### Nota di verifica editoriale — denominatore della campagna del lettore
+
+Nel documento v4 il § 5 riporta «28 contro 28 su 51 trappole», mentre la tabella analitica del § 7bis riporta «28 su 45 giudicabili» per ciascuna istruzione. I due denominatori non sono conciliati esplicitamente nel documento. In attesa di chiarimento, sul sito il confronto è riportato come **28 contro 28, p = 1**, senza denominatore; resta esplicitato il dato distinto **10/17** e **13/17** per i soli casi giudicabili di fallimento del segnale. Non si assume che i 6 casi di differenza siano semplicemente non giudicabili.
