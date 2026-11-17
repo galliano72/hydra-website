@@ -84,7 +84,7 @@ La versione 3 di `sito_numeri_verificati_17nov` sostituisce integralmente v1 e v
 | 17/11/2026 | Verifica del repository | Nessun registro precedente trovato; presenti `index.html` e `README.md`. |
 | 17/11/2026 | Creazione del registro nel repository | Creato nel ramo `aggiornamento-dati-verificati-2026-11-17`, includendo le cinque voci storiche effettivamente presenti nell'allegato. |
 | 17/11/2026 | Revisione sulla base di `sito_numeri_verificati_17nov_v2.md` | Integrate le correzioni della v2, inclusi rete misurata, controllo V2/V3 su 30 coppie e stato di verifica dei tre risultati storici. |
-| 17/11/2026 | Aggiornamento di `index.html` e controllo delle sette lingue sulla base della v3 | Prima revisione completata nel ramo di lavoro; corretti i numeri principali e aggiunte le misure di novembre in IT, EN, ES, DE, FR e ZH/PL. Verifica puntuale finale ancora in corso. |
+| 17/11/2026 | Aggiornamento di `index.html` e controllo delle sette lingue sulla base della v3 | Prima revisione completata nel ramo di lavoro; corretti i numeri principali e aggiunte le misure di novembre in IT, EN, ES, DE, FR, PL e ZH. Verifica puntuale finale ancora in corso. |
 | 17/11/2026 | Ricerca su Testa A delle fonti per 69/90, 119/120 e 46/60–48/60 | Completata secondo il documento v3: 69/90 resta come selezione; 46–48/60 resta con quattro avvertenze; 119/120 citazioni autentiche va rimosso dal sito per assenza di fonte primaria. |
-| — | Verifica finale completa dell'HTML, delle sette lingue e dei numeri residui | Da completare. |
+| 17/11/2026 | Verifica finale del ramo di lavoro | Controllati i sette dizionari linguistici, la presenza delle nuove chiavi, i numeri obsoleti elencati nella v3 e la corrispondenza dei tag HTML principali. Restano da eseguire il controllo visivo nel browser e il confronto finale con il ramo principale. |
 | — | Merge e pubblicazione | Non eseguiti; richiedono approvazione esplicita. |
