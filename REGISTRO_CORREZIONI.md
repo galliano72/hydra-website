@@ -42,6 +42,29 @@ Le seguenti sono tutte le voci effettivamente presenti nella tabella del § 3 di
 | 17/11/2026 | Risultati storici 69/90, 119/120 e 46/60–48/60 | Numeri presenti nel sito, ma non inclusi nel documento dei numeri verificati v2 | **Nessuna correzione numerica autorizzata per ora** | La loro assenza dal documento v2 significa che non sono stati verificati in questa revisione, non che siano falsi. Galliano deve cercarne le fonti su Testa A. Se fonte con data e perimetro: mantenere con tali dettagli; se fonte senza perimetro: rimuovere dal sito e registrare come storico senza perimetro; se nessuna fonte: rimuovere numero e frase. **In attesa della ricerca su Testa A.** |
 | 17/11/2026 | Affermazioni non supportate | "60–80%", superiorità generale sul RAG tradizionale, vantaggio generale multi-embedding, certificazioni/conformità, copertura presentata come certificata, grafo come filtro candidati, nomi interni | Eliminare tali affermazioni; non usare "Lucifero" o nomi interni nella comunicazione pubblica | Il documento numeri v2 non fornisce supporto per queste affermazioni; il grafo come filtro è stato provato e abbandonato perché peggiorava. Tracciabilità e ripetibilità possono essere descritte come principi di progetto, non certificazioni. **Controllare tutte le sette lingue.** |
 
+## Aggiornamento v3 — 17/11/2026
+
+La versione 3 di `sito_numeri_verificati_17nov` sostituisce integralmente v1 e v2. Integra le seguenti sette voci, da aggiungere alle cinque voci iniziali dell'11 novembre e alle correzioni già registrate sulla base della v2.
+
+| Data | Cosa | Prima | Ora | Perché |
+|---|---|---|---|---|
+| 17/11/2026 | Collegamento di rete fra le macchine | Indicato come valore nominale, con proposta di rimozione | **100 Mbit/s misurati**, su schede che supporterebbero il gigabit | Misura reale dell'inventario del 10 novembre; non è il valore nominale della scheda. |
+| 17/11/2026 | Riproducibilità del codice di misura V2/V3 | Confronto a coppia singola (848 prove, 106 risultati) | **30 coppie, 2.265 righe, 0 differenze di esito, 0 differenze nell'insieme delle 8 prove**; una sola differenza d'ordine a pari punteggio, presente anche fra corse dello stesso programma | La forma a coppia singola può essere scambiata per una misura di capacità; la forma a 30 coppie descrive il controllo interno di riproducibilità. |
+| 17/11/2026 | Misure sulla qualità delle risposte | Presentate come se il collaudo del 22 ottobre fosse l'unica misura | Due misure distinte: collaudo cieco del 22 ottobre (57,2–68,1%) e insieme 7 del 27 ottobre (46–48/60) | La ricerca delle fonti ha individuato una seconda misura storica. Non vanno sommate né confrontate. |
+| 17/11/2026 | 69/90, insieme 5 | In alcuni documenti chiamato «recuperato» | **Frase chiave fra le 8 prove consegnate**, cioè selezione; insieme 5 cieco, dominio nucleare, 23 ottobre 2026 | La fonte primaria e il protocollo definiscono la riuscita come presenza della frase chiave fra le otto prove. |
+| 17/11/2026 | 46–48/60, insieme 7 | Presentato come misura cieca senza tutte le avvertenze | Resta come misura storica di risposte giudicate buone, con quattro avvertenze: differenza non significativa (p=0,25); giudici non più in servizio e risultato non ripetibile oggi; cecità valida al 27 ottobre, mentre da novembre l'insieme è sviluppo; distinzione dalle riuscite di selezione di novembre | Senza il perimetro completo il dato può essere confuso con una misura attuale o con le omonime riuscite di selezione. |
+| 17/11/2026 | 119/120 citazioni autentiche | Pubblicato come risultato | **Rimosso dal sito**; conservato nel registro come dato storico del 28 ottobre senza fonte primaria ricostruibile | Compare in un riepilogo e in copie successive, ma nessun file di risultato primario lo contiene. Non confonderlo con il distinto 119/120 di accordo fra due giudici Claude. |
+| 17/11/2026 | Conteggio delle voci iniziali del registro | Indicate in sei nella v2 | **Cinque** voci iniziali dell'11 novembre | Il documento sorgente contiene cinque righe, non sei; non esiste una sesta voce. |
+
+### Esito della revisione v3
+
+- Le misure 69/90 e 46–48/60 sono riabilitate alla pubblicazione esclusivamente con le formulazioni e le cautele del documento v3.
+- Il dato 119/120 sulle citazioni autentiche deve essere assente dal sito in tutte le lingue.
+- Le due misure di qualità delle risposte devono essere presentate separatamente, con date e perimetri distinti.
+- La dicitura «le uniche percentuali sulla qualità delle risposte» e ogni equivalente devono essere eliminati.
+- Il controllo V2/V3, se pubblicato, deve essere descritto come controllo interno di riproducibilità del codice di misura, non come risultato sulle capacità di HYDRA.
+- Le sette voci sopra riportate si aggiungono alle cinque voci iniziali effettivamente presenti nel documento dell'11 novembre.
+
 ## Regole editoriali e di verifica
 
 1. Una sola fonte per ogni numero. Se un numero appare in più punti o lingue, deve essere identico e provenire dalla stessa fonte indicata.
