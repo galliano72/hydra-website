@@ -88,3 +88,24 @@ La versione 3 di `sito_numeri_verificati_17nov` sostituisce integralmente v1 e v
 | 17/11/2026 | Ricerca su Testa A delle fonti per 69/90, 119/120 e 46/60–48/60 | Completata secondo il documento v3: 69/90 resta come selezione; 46–48/60 resta con quattro avvertenze; 119/120 citazioni autentiche va rimosso dal sito per assenza di fonte primaria. |
 | 17/11/2026 | Verifica finale del ramo di lavoro | Controllati i sette dizionari linguistici, la presenza delle nuove chiavi, i numeri obsoleti elencati nella v3 e la corrispondenza dei tag HTML principali. Restano da eseguire il controllo visivo nel browser e il confronto finale con il ramo principale. |
 | — | Merge e pubblicazione | Non eseguiti; richiedono approvazione esplicita. |
+
+
+## Aggiornamento v4 — sera del 17 novembre 2026
+
+La versione 4 del documento `sito_numeri_verificati_17nov` sostituisce integralmente v1, v2 e v3 come fonte editoriale. Le seguenti cinque correzioni serali si aggiungono allo storico; non cancellano le formulazioni precedenti, ma ne registrano il superamento.
+
+| Data | Cosa | Prima | Ora | Perché e fonte |
+|---|---|---|---|---|
+| 17/11/2026 sera | Riga «Segnale» dei 50 insuccessi | Le 20 domande erano descritte come 20 fallimenti indistinti del sistema | Le 20 domande avevano tutte le 8 prove complete; nella campagna del lettore circa 10 delle 17 giudicabili hanno avuto risposta finale corretta secondo il controllo automatico numerico. Il riferimento resta **161/211**. | La campagna del lettore mostra che la riga misura il mancato segnale automatico, non necessariamente un errore della risposta finale. I conteggi automatici non sono una misura generale di qualità e non vanno convertiti in percentuali pubbliche. |
+| 17/11/2026 sera | Esperimenti di novembre | Cinque esperimenti | **Sette esperimenti**: sei senza vantaggio misurabile o con effetto minimo/non adottato; uno mantenuto, la divisione deterministica della domanda (**+3**, da 158/211 a 161/211). | Aggiunti l'irrigidimento della regola sulla premessa (0 recuperi su 17, 7 falsi segnali) e il confronto delle istruzioni del lettore (28/45 con entrambe, p = 1). Conservare gli esiti negativi. |
+| 17/11/2026 sera | Esperimento medicina/astronomia | Vettorializzazione indicata come «in corso» | **Vettorializzazione completata**: 100.023 frasi, 2.285 file, sei modelli, quattro macchine; 3 h 21 min, 581 minuti GPU cumulati, parallelismo 2,9×. Le 86 domande utilizzabili dell'insieme 9 sono state vettorializzate con tutti e sei i modelli. La misura comparativa non è stata eseguita. | Le sei corse sono terminate alle 17:00 circa del 17/11; nessuna conclusione sulle prestazioni dei modelli è ancora disponibile. Fonte: verbale `verbale_vettorializzazione_17nov_v2.md` e registri delle corse. |
+| 17/11/2026 sera | Qualità del corpus selezionato | Qualità del sottoinsieme non dichiarata | **0 frasi doppie su 100.023 (0,000%)**, secondo la definizione congelata, e 0 anomalie; 608 note senza punto (0,608%); stima delle doppie nascoste fra queste circa 155, pari allo **0,155%** (intervallo 0,115–0,195%). | Misura eseguita sul campione effettivamente vettorializzato. Il precedente 0,00% sui domini interi non sostituiva il controllo sul sottoinsieme. |
+| 17/11/2026 sera | Riproducibilità dei vettori | Registri a schermo arrotondavano il coseno minimo a 1,000000 | **0,99999997** per i cinque modelli ricalcolati; granite è stato copiato dall'indice, con perdita float16 0,00. Soglia del protocollo: 0,9999. | Riportare il valore non arrotondato. La copia di granite non va descritta come una nuova corsa di calcolo. |
+
+### Chiarimenti editoriali vincolanti della v4
+
+- La nota accanto alla riga «Segnale» deve chiarire che le 20 prove erano complete e che i risultati della campagna del lettore sono diagnostici, non una misura generale di qualità delle risposte.
+- Non pubblicare percentuali derivate dai voti automatici del lettore.
+- Non scrivere che HYDRA «riconosce le premesse false» come capacità acquisita: il controllo attuale verifica la presenza di numeri, anni e nomi, non la loro attribuzione.
+- La vettorializzazione di medicina e astronomia è conclusa; la valutazione comparativa è ancora da eseguire. Non anticipare risultati.
+- La v4 del documento dei numeri verificati è la fonte corrente per tutte le sette lingue. Ogni numero non elencato richiede verifica prima della pubblicazione.
