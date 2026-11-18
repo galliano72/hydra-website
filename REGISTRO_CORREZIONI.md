@@ -6,7 +6,7 @@ Quando un numero o un'interpretazione pubblicata risulta sbagliata o superata, l
 
 Il registro è stato creato nel repository il 17 novembre 2026. Il documento preparatorio dell'11 novembre era rimasto fuori dal repository; le sue voci sono riportate qui come storico iniziale, senza fingere che il registro fosse già stato creato allora.
 
-Ramo di lavoro: `aggiornamento-dati-verificati-2026-11-17`.
+Ramo di lavoro: `aggiornamento-v4-2026-11-17`.
 
 **Stato:** registro aggiornato sulla base dei due documenti forniti il 17/11/2026. Le voci descrivono correzioni e verifiche da recepire nel sito; non attestano che tutte le modifiche siano già state applicate o pubblicate. Il ramo principale e il sito pubblico restano invariati fino alla verifica e all'approvazione finale.
 
@@ -114,3 +114,17 @@ La versione 4 del documento `sito_numeri_verificati_17nov` sostituisce integralm
 ### Nota di verifica editoriale — denominatore della campagna del lettore
 
 Nel documento v4 il § 5 riporta «28 contro 28 su 51 trappole», mentre la tabella analitica del § 7bis riporta «28 su 45 giudicabili» per ciascuna istruzione. I due denominatori non sono conciliati esplicitamente nel documento. In attesa di chiarimento, sul sito il confronto è riportato come **28 contro 28, p = 1**, senza denominatore; resta esplicitato il dato distinto **10/17** e **13/17** per i soli casi giudicabili di fallimento del segnale. Non si assume che i 6 casi di differenza siano semplicemente non giudicabili.
+
+## Aggiornamento — 18 novembre 2026 (versione 5)
+
+Le voci seguenti integrano lo storico del 17 novembre senza sostituirlo. Nota di controllo editoriale: il § 10 della fonte v5 parla di sei voci nuove, mentre la tabella del § 11 ne contiene sette; qui sono riportate tutte e sette, senza eliminarne una per uniformare il conteggio.
+
+| Data | Cosa | Prima | Ora | Perché |
+|---|---|---|---|---|
+| 18/11/2026 | Numero di riferimento del recupero | 161/211 (configurazione del 17/11, quota 0) | **166/211** (configurazione del 18/11, quota 1) | Adozione della quota dopo tre misure: +5 nel recupero di sviluppo, 5 vinte e 0 perse (p = 0,0625); prova sull'insieme 9 inerte; +3 sulle risposte non significativo (p = 0,375). Il risultato resta di sviluppo e non è confermabile su un insieme indipendente disponibile. |
+| 18/11/2026 | Frasi chiave consegnate | 234/268 | **240/268** | Con la quota 1. Le frasi chiave fra i candidati restano 259/268: la quota modifica la selezione delle 8 prove, non ciò che entra fra i candidati. |
+| 18/11/2026 | Criterio di adozione della quota | Il criterio scritto prima delle prove indicava quota 2 a parità di beneficio sulle risposte | **Adottata quota 1, in deroga al criterio scritto** | Entrambe le quote hanno dato +3 sulle risposte. Quota 1 ha perturbato 35/211 dossier (17%) e rovinato 1 risposta; quota 2 101/211 (48%) e 5 risposte. La motivazione è stata registrata senza riscrivere retroattivamente il criterio originario. |
+| 18/11/2026 | Regola di metodo | Non formalizzata | **A beneficio misurato indistinguibile, mantenere la configurazione che modifica meno il comportamento del sistema** | Regola generale derivata dal confronto quota 1/quota 2, adottata per le decisioni successive. |
+| 18/11/2026 | Prova sull'insieme 9 | Possibile conferma indipendente | **Prova inerte**: la quota ha modificato le prove consegnate in 1 domanda su 19 | Il risultato 15/19 è uguale nelle configurazioni, ma l'intervento ha avuto una sola occasione effettiva: non è né conferma né smentita. |
+| 18/11/2026 | Confermabilità del +5 | Conferma indipendente attesa | **Non confermabile con gli insiemi disponibili** | Nessun insieme disponibile è abbastanza grande per un effetto di questa dimensione; il risultato va presentato con il suo p-value e con la qualifica di misura di sviluppo. |
+| 18/11/2026 | Collisione del numero 48/60 sull'insieme 7 | Numero apparentemente univoco | **Due misure distinte**: riuscite di selezione (18/11) e risposte giudicate buone (27/10) | Ogni occorrenza deve riportare misura e data. Per evitare ambiguità, il dettaglio per insieme è omesso dalla pagina pubblica e si comunica il totale 166/211. |
