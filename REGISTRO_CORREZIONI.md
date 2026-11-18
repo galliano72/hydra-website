@@ -6,7 +6,7 @@ Quando un numero o un'interpretazione pubblicata risulta sbagliata o superata, l
 
 Il registro è stato creato nel repository il 17 novembre 2026. Il documento preparatorio dell'11 novembre era rimasto fuori dal repository; le sue voci sono riportate qui come storico iniziale, senza fingere che il registro fosse già stato creato allora.
 
-Ramo di lavoro: `aggiornamento-dati-verificati-2026-11-17`.
+Ramo di lavoro: `aggiornamento-v4-2026-11-17`.
 
 **Stato:** registro aggiornato sulla base dei due documenti forniti il 17/11/2026. Le voci descrivono correzioni e verifiche da recepire nel sito; non attestano che tutte le modifiche siano già state applicate o pubblicate. Il ramo principale e il sito pubblico restano invariati fino alla verifica e all'approvazione finale.
 
@@ -88,3 +88,66 @@ La versione 3 di `sito_numeri_verificati_17nov` sostituisce integralmente v1 e v
 | 17/11/2026 | Ricerca su Testa A delle fonti per 69/90, 119/120 e 46/60–48/60 | Completata secondo il documento v3: 69/90 resta come selezione; 46–48/60 resta con quattro avvertenze; 119/120 citazioni autentiche va rimosso dal sito per assenza di fonte primaria. |
 | 17/11/2026 | Verifica finale del ramo di lavoro | Controllati i sette dizionari linguistici, la presenza delle nuove chiavi, i numeri obsoleti elencati nella v3 e la corrispondenza dei tag HTML principali. Restano da eseguire il controllo visivo nel browser e il confronto finale con il ramo principale. |
 | — | Merge e pubblicazione | Non eseguiti; richiedono approvazione esplicita. |
+
+
+## Aggiornamento v4 — sera del 17 novembre 2026
+
+La versione 4 del documento `sito_numeri_verificati_17nov` sostituisce integralmente v1, v2 e v3 come fonte editoriale. Le seguenti cinque correzioni serali si aggiungono allo storico; non cancellano le formulazioni precedenti, ma ne registrano il superamento.
+
+| Data | Cosa | Prima | Ora | Perché e fonte |
+|---|---|---|---|---|
+| 17/11/2026 sera | Riga «Segnale» dei 50 insuccessi | Le 20 domande erano descritte come 20 fallimenti indistinti del sistema | Le 20 domande avevano tutte le 8 prove complete; nella campagna del lettore circa 10 delle 17 giudicabili hanno avuto risposta finale corretta secondo il controllo automatico numerico. Il riferimento resta **161/211**. | La campagna del lettore mostra che la riga misura il mancato segnale automatico, non necessariamente un errore della risposta finale. I conteggi automatici non sono una misura generale di qualità e non vanno convertiti in percentuali pubbliche. |
+| 17/11/2026 sera | Esperimenti di novembre | Cinque esperimenti | **Sette esperimenti**: sei senza vantaggio misurabile o con effetto minimo/non adottato; uno mantenuto, la divisione deterministica della domanda (**+3**, da 158/211 a 161/211). | Aggiunti l'irrigidimento della regola sulla premessa (0 recuperi su 17, 7 falsi segnali) e il confronto delle istruzioni del lettore (28/45 con entrambe, p = 1). Conservare gli esiti negativi. |
+| 17/11/2026 sera | Esperimento medicina/astronomia | Vettorializzazione indicata come «in corso» | **Vettorializzazione completata**: 100.023 frasi, 2.285 file, sei modelli, quattro macchine; 3 h 21 min, 581 minuti GPU cumulati, parallelismo 2,9×. Le 86 domande utilizzabili dell'insieme 9 sono state vettorializzate con tutti e sei i modelli. La misura comparativa non è stata eseguita. | Le sei corse sono terminate alle 17:00 circa del 17/11; nessuna conclusione sulle prestazioni dei modelli è ancora disponibile. Fonte: verbale `verbale_vettorializzazione_17nov_v2.md` e registri delle corse. |
+| 17/11/2026 sera | Qualità del corpus selezionato | Qualità del sottoinsieme non dichiarata | **0 frasi doppie su 100.023 (0,000%)**, secondo la definizione congelata, e 0 anomalie; 608 note senza punto (0,608%); stima delle doppie nascoste fra queste circa 155, pari allo **0,155%** (intervallo 0,115–0,195%). | Misura eseguita sul campione effettivamente vettorializzato. Il precedente 0,00% sui domini interi non sostituiva il controllo sul sottoinsieme. |
+| 17/11/2026 sera | Riproducibilità dei vettori | Registri a schermo arrotondavano il coseno minimo a 1,000000 | **0,99999997** per i cinque modelli ricalcolati; granite è stato copiato dall'indice, con perdita float16 0,00. Soglia del protocollo: 0,9999. | Riportare il valore non arrotondato. La copia di granite non va descritta come una nuova corsa di calcolo. |
+
+### Chiarimenti editoriali vincolanti della v4
+
+- La nota accanto alla riga «Segnale» deve chiarire che le 20 prove erano complete e che i risultati della campagna del lettore sono diagnostici, non una misura generale di qualità delle risposte.
+- Non pubblicare percentuali derivate dai voti automatici del lettore.
+- Non scrivere che HYDRA «riconosce le premesse false» come capacità acquisita: il controllo attuale verifica la presenza di numeri, anni e nomi, non la loro attribuzione.
+- La vettorializzazione di medicina e astronomia è conclusa; la valutazione comparativa è ancora da eseguire. Non anticipare risultati.
+- La v4 del documento dei numeri verificati è la fonte corrente per tutte le sette lingue. Ogni numero non elencato richiede verifica prima della pubblicazione.
+
+
+### Nota di verifica editoriale — denominatore della campagna del lettore
+
+Nel documento v4 il § 5 riporta «28 contro 28 su 51 trappole», mentre la tabella analitica del § 7bis riporta «28 su 45 giudicabili» per ciascuna istruzione. I due denominatori non sono conciliati esplicitamente nel documento. In attesa di chiarimento, sul sito il confronto è riportato come **28 contro 28, p = 1**, senza denominatore; resta esplicitato il dato distinto **10/17** e **13/17** per i soli casi giudicabili di fallimento del segnale. Non si assume che i 6 casi di differenza siano semplicemente non giudicabili.
+
+## Aggiornamento — 18 novembre 2026 (versione 5)
+
+Le voci seguenti integrano lo storico del 17 novembre senza sostituirlo. Nota di controllo editoriale: il § 10 della fonte v5 parla di sei voci nuove, mentre la tabella del § 11 ne contiene sette; qui sono riportate tutte e sette, senza eliminarne una per uniformare il conteggio.
+
+| Data | Cosa | Prima | Ora | Perché |
+|---|---|---|---|---|
+| 18/11/2026 | Numero di riferimento del recupero | 161/211 (configurazione del 17/11, quota 0) | **166/211** (configurazione del 18/11, quota 1) | Adozione della quota dopo tre misure: +5 nel recupero di sviluppo, 5 vinte e 0 perse (p = 0,0625); prova sull'insieme 9 inerte; +3 sulle risposte non significativo (p = 0,375). Il risultato resta di sviluppo e non è confermabile su un insieme indipendente disponibile. |
+| 18/11/2026 | Frasi chiave consegnate | 234/268 | **240/268** | Con la quota 1. Le frasi chiave fra i candidati restano 259/268: la quota modifica la selezione delle 8 prove, non ciò che entra fra i candidati. |
+| 18/11/2026 | Criterio di adozione della quota | Il criterio scritto prima delle prove indicava quota 2 a parità di beneficio sulle risposte | **Adottata quota 1, in deroga al criterio scritto** | Entrambe le quote hanno dato +3 sulle risposte. Quota 1 ha perturbato 35/211 dossier (17%) e rovinato 1 risposta; quota 2 101/211 (48%) e 5 risposte. La motivazione è stata registrata senza riscrivere retroattivamente il criterio originario. |
+| 18/11/2026 | Regola di metodo | Non formalizzata | **A beneficio misurato indistinguibile, mantenere la configurazione che modifica meno il comportamento del sistema** | Regola generale derivata dal confronto quota 1/quota 2, adottata per le decisioni successive. |
+| 18/11/2026 | Prova sull'insieme 9 | Possibile conferma indipendente | **Prova inerte**: la quota ha modificato le prove consegnate in 1 domanda su 19 | Il risultato 15/19 è uguale nelle configurazioni, ma l'intervento ha avuto una sola occasione effettiva: non è né conferma né smentita. |
+| 18/11/2026 | Confermabilità del +5 | Conferma indipendente attesa | **Non confermabile con gli insiemi disponibili** | Nessun insieme disponibile è abbastanza grande per un effetto di questa dimensione; il risultato va presentato con il suo p-value e con la qualifica di misura di sviluppo. |
+| 18/11/2026 | Collisione del numero 48/60 sull'insieme 7 | Numero apparentemente univoco | **Due misure distinte**: riuscite di selezione (18/11) e risposte giudicate buone (27/10) | Ogni occorrenza deve riportare misura e data. Per evitare ambiguità, il dettaglio per insieme è omesso dalla pagina pubblica e si comunica il totale 166/211. |
+
+## Aggiornamento editoriale — 18 novembre 2026: HYDRA Evolution e HYDRA Lite
+
+| Data | Area | Prima | Aggiornamento | Criterio editoriale |
+|---|---|---|---|---|
+| 18/11/2026 | Architettura pubblica del progetto | La pagina descriveva ricerca e sviluppo, ma non distingueva con sufficiente evidenza le due linee di sviluppo pubblico | Aggiunte sezioni autonome **HYDRA Evolution** e **HYDRA Lite**, con collegamenti nella navigazione | HYDRA resta il progetto principale; Evolution è una linea esplorativa di ricerca; Lite è una linea applicativa. I nomi interni di implementazione non vengono esposti. |
+| 18/11/2026 | HYDRA Evolution | Temi di ricerca presenti solo nella descrizione generale della ricerca | Esplicitati RAG multipli e confronti tra embedding, reticolazione di concetti e relazioni con provenienza, analisi preliminare delle domande | Le attività sono dichiarate sperimentali. Non si afferma una superiorità generale dei RAG multipli o delle strutture reticolari; i nodi candidati richiedono verifica delle evidenze. |
+| 18/11/2026 | HYDRA Lite | Linea applicativa non presentata come sezione autonoma | Aggiunta una sezione dedicata a ricerca documentale, riferimenti alle fonti, confronto di documenti/versioni, individuazione di informazioni mancanti o discordanti e possibile elaborazione locale | Lite è dichiarato **in sviluppo e valutazione**, non prodotto disponibile né servizio già commercializzato. Importazione, sicurezza, gestione accessi, backup e validazione end-to-end restano attività da completare. |
+| 18/11/2026 | Ambiti applicativi di Lite | Destinatari e casi d'uso non esplicitati | Indicati come ambiti potenziali documentazione tecnica e qualità aziendale, consulenza, ricerca e piccole organizzazioni | Sono possibilità da esplorare, non clienti, installazioni o collaborazioni già attive. |
+| 18/11/2026 | Iniziative a costo contenuto | Nessuna formulazione pubblica | Inserita la possibilità futura di valutare condizioni di costo molto contenuto per iniziative nei Paesi in via di sviluppo, subordinatamente alla collaborazione di associazioni di settore | Non è un'offerta gratuita né non-profit. Finalità promozionale e condizioni da definire caso per caso; non viene presentata come programma già attivo. |
+| 18/11/2026 | Traduzioni | Le nuove linee non erano presenti nelle sette versioni linguistiche | Aggiunti navigazione, contenuti e precisazioni in IT, EN, ES, DE, FR, PL e ZH | Ogni lingua mantiene la distinzione tra risultati verificati, attività sperimentali, applicazioni potenziali e funzioni ancora da sviluppare. |
+
+### Esito della revisione editoriale
+
+- La navigazione rimanda direttamente alle sezioni Evolution e Lite.
+- Evolution non viene presentato come prodotto né come architettura già validata.
+- Lite non viene presentato come prodotto acquistabile o pronto all'uso.
+- La possibilità di iniziative a costo molto contenuto è condizionata alla collaborazione di associazioni di settore e non viene descritta come gratuita o non-profit.
+- Le due sezioni sono state aggiunte alle sette versioni linguistiche.
+- Modifica preparata nel ramo `aggiornamento-v4-2026-11-17`, nella PR #9. Nessun merge o deploy eseguito.
+
+
+| 18/11/2026 | Nomi interni nella misura storica dell'insieme 7 | La descrizione delle due configurazioni riportava un nome interno di implementazione | Sostituito in tutte le sette lingue con la dicitura neutra «due configurazioni di ricerca confrontate» | La pagina pubblica non espone nomi interni; il dato storico e il suo perimetro restano invariati. |
