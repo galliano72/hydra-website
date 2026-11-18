@@ -128,3 +128,23 @@ Le voci seguenti integrano lo storico del 17 novembre senza sostituirlo. Nota di
 | 18/11/2026 | Prova sull'insieme 9 | Possibile conferma indipendente | **Prova inerte**: la quota ha modificato le prove consegnate in 1 domanda su 19 | Il risultato 15/19 è uguale nelle configurazioni, ma l'intervento ha avuto una sola occasione effettiva: non è né conferma né smentita. |
 | 18/11/2026 | Confermabilità del +5 | Conferma indipendente attesa | **Non confermabile con gli insiemi disponibili** | Nessun insieme disponibile è abbastanza grande per un effetto di questa dimensione; il risultato va presentato con il suo p-value e con la qualifica di misura di sviluppo. |
 | 18/11/2026 | Collisione del numero 48/60 sull'insieme 7 | Numero apparentemente univoco | **Due misure distinte**: riuscite di selezione (18/11) e risposte giudicate buone (27/10) | Ogni occorrenza deve riportare misura e data. Per evitare ambiguità, il dettaglio per insieme è omesso dalla pagina pubblica e si comunica il totale 166/211. |
+
+## Aggiornamento editoriale — 18 novembre 2026: HYDRA Evolution e HYDRA Lite
+
+| Data | Area | Prima | Aggiornamento | Criterio editoriale |
+|---|---|---|---|---|
+| 18/11/2026 | Architettura pubblica del progetto | La pagina descriveva ricerca e sviluppo, ma non distingueva con sufficiente evidenza le due linee di sviluppo pubblico | Aggiunte sezioni autonome **HYDRA Evolution** e **HYDRA Lite**, con collegamenti nella navigazione | HYDRA resta il progetto principale; Evolution è una linea esplorativa di ricerca; Lite è una linea applicativa. I nomi interni di implementazione non vengono esposti. |
+| 18/11/2026 | HYDRA Evolution | Temi di ricerca presenti solo nella descrizione generale della ricerca | Esplicitati RAG multipli e confronti tra embedding, reticolazione di concetti e relazioni con provenienza, analisi preliminare delle domande | Le attività sono dichiarate sperimentali. Non si afferma una superiorità generale dei RAG multipli o delle strutture reticolari; i nodi candidati richiedono verifica delle evidenze. |
+| 18/11/2026 | HYDRA Lite | Linea applicativa non presentata come sezione autonoma | Aggiunta una sezione dedicata a ricerca documentale, riferimenti alle fonti, confronto di documenti/versioni, individuazione di informazioni mancanti o discordanti e possibile elaborazione locale | Lite è dichiarato **in sviluppo e valutazione**, non prodotto disponibile né servizio già commercializzato. Importazione, sicurezza, gestione accessi, backup e validazione end-to-end restano attività da completare. |
+| 18/11/2026 | Ambiti applicativi di Lite | Destinatari e casi d'uso non esplicitati | Indicati come ambiti potenziali documentazione tecnica e qualità aziendale, consulenza, ricerca e piccole organizzazioni | Sono possibilità da esplorare, non clienti, installazioni o collaborazioni già attive. |
+| 18/11/2026 | Iniziative a costo contenuto | Nessuna formulazione pubblica | Inserita la possibilità futura di valutare condizioni di costo molto contenuto per iniziative nei Paesi in via di sviluppo, subordinatamente alla collaborazione di associazioni di settore | Non è un'offerta gratuita né non-profit. Finalità promozionale e condizioni da definire caso per caso; non viene presentata come programma già attivo. |
+| 18/11/2026 | Traduzioni | Le nuove linee non erano presenti nelle sette versioni linguistiche | Aggiunti navigazione, contenuti e precisazioni in IT, EN, ES, DE, FR, PL e ZH | Ogni lingua mantiene la distinzione tra risultati verificati, attività sperimentali, applicazioni potenziali e funzioni ancora da sviluppare. |
+
+### Esito della revisione editoriale
+
+- La navigazione rimanda direttamente alle sezioni Evolution e Lite.
+- Evolution non viene presentato come prodotto né come architettura già validata.
+- Lite non viene presentato come prodotto acquistabile o pronto all'uso.
+- La possibilità di iniziative a costo molto contenuto è condizionata alla collaborazione di associazioni di settore e non viene descritta come gratuita o non-profit.
+- Le due sezioni sono state aggiunte alle sette versioni linguistiche.
+- Modifica preparata nel ramo `aggiornamento-v4-2026-11-17`, nella PR #9. Nessun merge o deploy eseguito.
