@@ -148,3 +148,6 @@ Le voci seguenti integrano lo storico del 17 novembre senza sostituirlo. Nota di
 - La possibilità di iniziative a costo molto contenuto è condizionata alla collaborazione di associazioni di settore e non viene descritta come gratuita o non-profit.
 - Le due sezioni sono state aggiunte alle sette versioni linguistiche.
 - Modifica preparata nel ramo `aggiornamento-v4-2026-11-17`, nella PR #9. Nessun merge o deploy eseguito.
+
+
+| 18/11/2026 | Nomi interni nella misura storica dell'insieme 7 | La descrizione delle due configurazioni riportava un nome interno di implementazione | Sostituito in tutte le sette lingue con la dicitura neutra «due configurazioni di ricerca confrontate» | La pagina pubblica non espone nomi interni; il dato storico e il suo perimetro restano invariati. |
